@@ -28,7 +28,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <label>Trevor Brennan</labe>
+        <label>Trevor Brennan</label>
         <ul>
           <li> Julius Muhumuza </li>
           <li> Phillip Mayaka</li>
