@@ -7,7 +7,7 @@ import { Nav, NavLink, NavMenu } from "./components/Navbar/NavbarElements";
 import {
   BrowserRouter as Router,
   Routes,
-  Route, Link} from "react-router-dom";
+  Route} from "react-router-dom";
 import HomePage from "./pages/HomePage" ;
 import BasicQuestionPage from "./pages/BasicQuestionsPage";
 
@@ -52,14 +52,16 @@ function App() {
      )
   }
   return (
-<Router>
-  <Navbar /> 
-  <Routes>
-    <Route path="/" element={<HomePage />} />
-    <Route path='/BasicQuestionPage' element={<BasicQuestionPage />} />
-  </Routes>
-</Router>
-
+    <div>
+      <Router>
+        <Navbar /> 
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path='/BasicQuestionPage' element={<BasicQuestionPage />} />
+        </Routes>
+      </Router>
+      <label>Test</label>
+    </div>
   );
 }
 
