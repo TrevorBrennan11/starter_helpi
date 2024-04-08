@@ -13,6 +13,9 @@ if (prevKey !== null) {
 
 function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
+  const [isHomePage, /*setIsHomePage*/] = useState<boolean>(true);
+  const [isBasicPage, /*setIsBasicPage*/] = useState<boolean>(false);
+const [isDetailedPage, /*setIsDetailedPage*/] = useState<boolean>(false);
   
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
@@ -26,6 +29,7 @@ function App() {
   }
   return (
     <div className="App">
+      {/*Header will contain navigation bar*/}
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <label>Trevor Brennan</label>
@@ -45,12 +49,37 @@ function App() {
           Learn React
         </a>
       </header>
-      <Form>
-        <Form.Label>API Key:</Form.Label>
-        <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
-        <br></br>
-        <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
-      </Form>
+
+      {/*Home Page*/}
+      {isHomePage && 
+        <div>
+          <label>Home Page</label>
+        </div>
+      }
+
+      {/*Basic Questions Page*/}
+      {isBasicPage && 
+        <div>
+          <label>Basic Questions Page</label>
+        </div>
+      }
+
+      {/*Detailed Questions Page*/}
+      {isDetailedPage && 
+        <div>
+          <label>Detailed Questions Page</label>
+        </div>
+      }
+
+      {/*Footer contains entry for the API key*/}
+      <footer>
+        <Form>
+          <Form.Label>API Key:</Form.Label>
+          <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
+          <br></br>
+          <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
+        </Form>
+      </footer> 
     </div>
   );
 }
