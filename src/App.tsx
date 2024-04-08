@@ -52,16 +52,14 @@ function App() {
      )
   }
   return (
-    <div>
-      <Router>
-        <Navbar /> 
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path='/BasicQuestionPage' element={<BasicQuestionPage />} />
-        </Routes>
-      </Router>
-      <label>Test</label>
-    </div>
+<Router>
+  <Navbar /> 
+  <Routes>
+    <Route path="/" element={<HomePage />} />
+    <Route path='/BasicQuestionPage' element={<BasicQuestionPage />} />
+  </Routes>
+</Router>
+
   );
 }
 
