@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Nav, NavLink, NavMenu } from "./components/Navbar/NavbarElements";
-import { Button, Form } from 'react-bootstrap';
 
 import {
   BrowserRouter as Router,
   Routes,
-  Route, Link} from "react-router-dom";
+  Route} from "react-router-dom";
 import HomePage from "./pages/HomePage" ;
 import BasicQuestionPage from "./pages/BasicQuestionsPage";
 
