@@ -1,7 +1,17 @@
 import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Nav, NavLink, NavMenu } from "./components/Navbar/NavbarElements";
 import { Button, Form } from 'react-bootstrap';
+
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route, Link} from "react-router-dom";
+import HomePage from "./pages/HomePage" ;
+import BasicQuestionPage from "./pages/BasicQuestionsPage";
+
+
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -24,34 +34,32 @@ function App() {
   function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
     setKey(event.target.value);
   }
+
+  function Navbar () {
+    return (
+      <>
+      <Nav>
+          <NavMenu>
+              <NavLink to="/" >
+                  Home
+              </NavLink>
+              <NavLink to="/BasicQuestionPage" >
+                  Basic Question Page
+              </NavLink>
+          </NavMenu>
+      </Nav>
+  </>
+     )
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <label>Trevor Brennan</label>
-        <ul>
-          <li> Julius Muhumuza </li>
-          <li> Phillip Mayaka</li>
-        </ul>
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      <Form>
-        <Form.Label>API Key:</Form.Label>
-        <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
-        <br></br>
-        <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
-      </Form>
-    </div>
+<Router>
+  <Navbar /> 
+  <Routes>
+    <Route path="/" element={<HomePage />} />
+    <Route path='/BasicQuestionPage' element={<BasicQuestionPage />} />
+  </Routes>
+</Router>
+
   );
 }
 
