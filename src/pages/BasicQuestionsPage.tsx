@@ -1,7 +1,7 @@
 export default function BasicQuestionPage(){
     return (
         <>
-        <h1> Welcome to the Basic Question Page!</h1>
+        <h1> Basic Question Page</h1>
         </>
     )
 }
