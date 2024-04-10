@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import { Button, Col, Container, Form } from 'react-bootstrap';
+import { Button, Col, Container, Form , Row} from 'react-bootstrap';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -53,14 +53,22 @@ const [isDetailedPage, setIsDetailedPage] = useState<boolean>(false);
   </Container>
 </header>
 
-<div className='App-body'>
-  {/*Home Page*/}
-  {isHomePage && 
-    <div>
-      <div>Home Page</div>
-      <div> STUFFFF</div>
-    </div>
-  }
+      {/*Home Page*/}
+      {isHomePage && 
+        <div>
+          <label>Home Page</label>
+          <Container>
+            <Row>
+                <Col>Our basic questions quiz provides you with short, easy to answer prompts that can help
+                gauge a general career path for you!</Col>
+                <Col>
+                    Our detailed questions quiz provides you with longer, and more in-depth prompts, that will be more 
+                    effective in gauging a specific career path that suits you!
+                </Col>
+            </Row>
+        </Container>
+        </div>
+      }
 
   {/*Basic Questions Page*/}
   {isBasicPage && 
@@ -75,25 +83,23 @@ const [isDetailedPage, setIsDetailedPage] = useState<boolean>(false);
       <label>Detailed Questions Page</label>
     </div>
   }
+
+  {/*Footer contains entry for the API key*/}
+<footer className='App-footer'>
+<Form>
+  <Form.Label>API Key:</Form.Label>
+  <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
+  <br></br>
+  <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
+</Form>
+</footer> 
 </div>
 
 
-      
-    
-      
-      
 
-      {/*Footer contains entry for the API key*/}
-      <footer className='App-footer'>
-        <Form>
-          <Form.Label>API Key:</Form.Label>
-          <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
-          <br></br>
-          <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
-        </Form>
-      </footer> 
-    </div>
-  );
+  
+);  
+
 }
 
 export default App;
