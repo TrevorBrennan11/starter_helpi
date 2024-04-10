@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
-import { Button, Col, Container, Form, Row } from 'react-bootstrap';
+import { Button, Col, Container, Form } from 'react-bootstrap';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
