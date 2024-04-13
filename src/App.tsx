@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-// import logo from './logo.svg';
 import './App.css';
 import { Button, Col, Container, Form , Row} from 'react-bootstrap';
+import { BasicQuestionPage } from './form-components/BasicQuestionPage';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -48,32 +48,32 @@ const [isDetailedPage, setIsDetailedPage] = useState<boolean>(false);
       <header className="App-header">
   <Container fluid>
     <Col as={Button} onClick={updateHomePageButton}>Home</Col>
+    <span></span>
     <Col as={Button} onClick={updateBasicPageButton}>Basic</Col>
+    <span></span>
     <Col as={Button} onClick={updateDetailedPageButton}>Detailed</Col>
   </Container>
 </header>
-
+<div className='App-body'>
       {/*Home Page*/}
       {isHomePage && 
         <div>
-          <label>Home Page</label>
-          <Container>
-            <Row>
-                <Col>Our basic questions quiz provides you with short, easy to answer prompts that can help
-                gauge a general career path for you!</Col>
-                <Col>
+          <h1>Career Starter</h1>
+          <div className='container'>
+            <div className='search-wrapper'>Our basic questions quiz provides you with short, easy to answer prompts that can help
+                gauge a general career path for you!</div>
+            <div className='search-wrapper'>
                     Our detailed questions quiz provides you with longer, and more in-depth prompts, that will be more 
                     effective in gauging a specific career path that suits you!
-                </Col>
-            </Row>
-        </Container>
+            </div>
+        </div>
         </div>
       }
 
   {/*Basic Questions Page*/}
   {isBasicPage && 
-    <div>
-      <label>Basic Questions Page</label>
+    <div className='basic-page-container'>
+      <BasicQuestionPage ></BasicQuestionPage>
     </div>
   }
      
@@ -83,7 +83,7 @@ const [isDetailedPage, setIsDetailedPage] = useState<boolean>(false);
       <label>Detailed Questions Page</label>
     </div>
   }
-
+</div>
   {/*Footer contains entry for the API key*/}
 <footer className='App-footer'>
 <Form>
@@ -95,9 +95,6 @@ const [isDetailedPage, setIsDetailedPage] = useState<boolean>(false);
 </footer> 
 </div>
 
-
-
-  
 );  
 
 }
