@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Form, Row, Col } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 
 export function BasicQuestionPage(): JSX.Element {
    
  // This is the State (Model)
- const [basicQuestion, setBasicQuestion] = useState<string>("Default");
+ const [/*basicQuestion*/, setBasicQuestion] = useState<string>("Default");
 
  // This is the Control
  function updateBasicQuestion(event: React.ChangeEvent<HTMLInputElement>) {
