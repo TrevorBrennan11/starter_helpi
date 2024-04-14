@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -15,7 +15,7 @@ function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
   const [isHomePage, /*setIsHomePage*/] = useState<boolean>(true);
   const [isBasicPage, /*setIsBasicPage*/] = useState<boolean>(false);
-const [isDetailedPage, /*setIsDetailedPage*/] = useState<boolean>(false);
+  const [isDetailedPage, /*setIsDetailedPage*/] = useState<boolean>(false);
   
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
@@ -31,45 +31,36 @@ const [isDetailedPage, /*setIsDetailedPage*/] = useState<boolean>(false);
     <div className="App">
       {/*Header will contain navigation bar*/}
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <label>Trevor Brennan</label>
-        <ul>
-          <li> Julius Muhumuza </li>
-          <li> Phillip Mayaka</li>
-        </ul>
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Container fluid>
+          <Row>
+            <Col>Basic</Col>
+            <Col>Home</Col>
+          </Row>
+        </Container>
       </header>
 
-      {/*Home Page*/}
-      {isHomePage && 
-        <div>
-          <label>Home Page</label>
-        </div>
-      }
+      <div className='App-body'>
+        {/*Home Page*/}
+        {isHomePage && 
+          <div>
+            <label>Home Page</label>
+          </div>
+        }
 
-      {/*Basic Questions Page*/}
-      {isBasicPage && 
-        <div>
-          <label>Basic Questions Page</label>
-        </div>
-      }
+        {/*Basic Questions Page*/}
+        {isBasicPage && 
+          <div>
+            <label>Basic Questions Page</label>
+          </div>
+        }
 
-      {/*Detailed Questions Page*/}
-      {isDetailedPage && 
-        <div>
-          <label>Detailed Questions Page</label>
-        </div>
-      }
+        {/*Detailed Questions Page*/}
+        {isDetailedPage && 
+          <div>
+            <label>Detailed Questions Page</label>
+          </div>
+        }
+      </div>
 
       {/*Footer contains entry for the API key*/}
       <footer>
