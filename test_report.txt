@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (42 ms)
+  ✕ renders learn react link (41 ms)
 
   ● renders learn react link
 
@@ -27,12 +27,14 @@ FAIL src/App.test.tsx
               [36m>[39m
                 [0mHome[0m
               [36m</button>[39m
+              [36m<span />[39m
               [36m<button[39m
                 [33mclass[39m=[32m"col btn btn-primary"[39m
                 [33mtype[39m=[32m"button"[39m
               [36m>[39m
                 [0mBasic[0m
               [36m</button>[39m
+              [36m<span />[39m
               [36m<button[39m
                 [33mclass[39m=[32m"col btn btn-primary"[39m
                 [33mtype[39m=[32m"button"[39m
@@ -41,23 +43,23 @@ FAIL src/App.test.tsx
               [36m</button>[39m
             [36m</div>[39m
           [36m</header>[39m
-          [36m<div>[39m
-            [36m<label>[39m
-              [0mHome Page[0m
-            [36m</label>[39m
-            [36m<div[39m
-              [33mclass[39m=[32m"container"[39m
-            [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"App-body"[39m
+          [36m>[39m
+            [36m<div>[39m
+              [36m<h1>[39m
+                [0mCareer Starter[0m
+              [36m</h1>[39m
               [36m<div[39m
-                [33mclass[39m=[32m"row"[39m
+                [33mclass[39m=[32m"container"[39m
               [36m>[39m
                 [36m<div[39m
-                  [33mclass[39m=[32m"col"[39m
+                  [33mclass[39m=[32m"search-wrapper"[39m
                 [36m>[39m
                   [0mOur basic questions quiz provides you with short, easy to answer prompts that can help gauge a general career path for you![0m
                 [36m</div>[39m
                 [36m<div[39m
-                  [33mclass[39m=[32m"col"[39m
+                  [33mclass[39m=[32m"search-wrapper"[39m
                 [36m>[39m
                   [0mOur detailed questions quiz provides you with longer, and more in-depth prompts, that will be more effective in gauging a specific career path that suits you![0m
                 [36m</div>[39m
@@ -111,18 +113,21 @@ FAIL src/App.test.tsx
       at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
---------------------|---------|----------|---------|---------|-------------------
-File                | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
---------------------|---------|----------|---------|---------|-------------------
-All files           |   27.27 |    41.66 |    12.5 |   27.27 |                   
- App.tsx            |    40.9 |     62.5 |   16.66 |    40.9 | 11,22-43          
- index.tsx          |       0 |      100 |     100 |       0 | 7-19              
- reportWebVitals.ts |       0 |        0 |       0 |       0 | 3-10              
---------------------|---------|----------|---------|---------|-------------------
+------------------------|---------|----------|---------|---------|-------------------
+File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+------------------------|---------|----------|---------|---------|-------------------
+All files               |   21.42 |    35.71 |    8.33 |   21.95 |                   
+ src                    |   27.27 |    41.66 |    12.5 |   27.27 |                   
+  App.tsx               |    40.9 |     62.5 |   16.66 |    40.9 | 12,23-44          
+  index.tsx             |       0 |      100 |     100 |       0 | 7-19              
+  reportWebVitals.ts    |       0 |        0 |       0 |       0 | 3-10              
+ src/form-components    |       0 |        0 |       0 |       0 |                   
+  BasicQuestionPage.tsx |       0 |        0 |       0 |       0 | 7-29              
+------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.64 s
+Time:        2.805 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
