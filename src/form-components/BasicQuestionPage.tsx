@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 
-export function BasicQuestionPage(): JSX.Element {
+export function BasicQuestionsPage(): JSX.Element {
    
  // This is the State (Model)
  const [/*basicQuestion*/, setBasicQuestion] = useState<string>("Default");
@@ -60,13 +60,13 @@ return (
                 type="radio"
                 name="Career-Question"
                 onChange={updateBasicQuestion}
-                id="Career-Question"
+                id="Career-Question2"
                 label="Default"
                 value="Default"
             />
             <Form.Check
                 type="radio"
-                name="Career-Question"
+                name="Career-Question2"
                 onChange={updateBasicQuestion}
                 id="Career-Question"
                 label="Default"
@@ -74,7 +74,7 @@ return (
             />
             <Form.Check
                 type="radio"
-                name="Career-Question"
+                name="Career-Question2"
                 onChange={updateBasicQuestion}
                 id="Career-Question"
                 label="Default"
