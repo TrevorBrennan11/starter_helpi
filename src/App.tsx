@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
 import { Button, Col, Container, Form } from 'react-bootstrap';
-import { BasicQuestionPage } from './form-components/BasicQuestionPage';
+import { BasicQuestionsPage } from './form-components/BasicQuestionPage';
+import { DetailedQuestionsPage } from './form-components/DetailedQuestionPage';
 
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
@@ -11,13 +12,14 @@ const prevKey = localStorage.getItem(saveKeyData); //so it'll look like: MYKEY: 
 if (prevKey !== null) {
   keyData = JSON.parse(prevKey);
 }
-
 function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
   const [isHomePage, setIsHomePage] = useState<boolean>(true);
   const [isBasicPage, setIsBasicPage] = useState<boolean>(false);
-const [isDetailedPage, setIsDetailedPage] = useState<boolean>(false);
+  const [isDetailedPage, setIsDetailedPage] = useState<boolean>(false);
   
+
+
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
     localStorage.setItem(saveKeyData, JSON.stringify(key));
@@ -43,6 +45,7 @@ const [isDetailedPage, setIsDetailedPage] = useState<boolean>(false);
   setIsBasicPage(false);
   setIsHomePage(false);
 }
+
   return (
     <div className="App">
       {/*Header will contain navigation bar*/}
@@ -74,14 +77,14 @@ const [isDetailedPage, setIsDetailedPage] = useState<boolean>(false);
   {/*Basic Questions Page*/}
   {isBasicPage && 
     <div className='basic-page-container'>
-      <BasicQuestionPage ></BasicQuestionPage>
+      <BasicQuestionsPage ></BasicQuestionsPage>
     </div>
   }
      
   {/*Detailed Questions Page*/}
   {isDetailedPage && 
     <div>
-      <label>Detailed Questions Page</label>
+     <DetailedQuestionsPage></DetailedQuestionsPage>
     </div>
   }
 </div>

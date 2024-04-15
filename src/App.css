@@ -37,7 +37,15 @@ Button{
   font-size: calc(10px + 2vmin);
   background-color: darkblue;
 }
-
+.App-details {
+  min-height: 50h;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  background-color: #a8e1f7;
+}
 .App-link {
   color: #61dafb;
 }
