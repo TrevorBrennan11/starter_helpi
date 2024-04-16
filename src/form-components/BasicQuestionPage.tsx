@@ -277,6 +277,56 @@ return (
                 onChange={updateEmotion}
             />
 
+<p>This is just a radio type question </p>
+            <Form.Check
+                type="radio"
+                name="Career-Question"
+                onChange={updateBasicQuestion}
+                id="Career-Question"
+                label="Default"
+                value="Default"
+            />
+            <Form.Check
+                type="radio"
+                name="Career-Question"
+                onChange={updateBasicQuestion}
+                id="Career-Question"
+                label="Default"
+                value="Default"
+            />
+            <Form.Check
+                type="radio"
+                name="Career-Question"
+                onChange={updateBasicQuestion}
+                id="Career-Question"
+                label="Default"
+                value="Default"
+            />
+ <p>This is just a radio type question </p>
+            <Form.Check
+                type="radio"
+                name="Career-Question"
+                onChange={updateBasicQuestion}
+                id="Career-Question"
+                label="Default"
+                value="Default"
+            />
+            <Form.Check
+                type="radio"
+                name="Career-Question"
+                onChange={updateBasicQuestion}
+                id="Career-Question"
+                label="Default"
+                value="Default"
+            />
+            <Form.Check
+                type="radio"
+                name="Career-Question"
+                onChange={updateBasicQuestion}
+                id="Career-Question"
+                label="Default"
+                value="Default"
+            />
 
         </div>
         );

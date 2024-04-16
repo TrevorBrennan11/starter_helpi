@@ -3,6 +3,7 @@ import './App.css';
 import { Button, Col, Container, Form } from 'react-bootstrap';
 import { BasicQuestionsPage } from './form-components/BasicQuestionPage';
 import { DetailedQuestionsPage } from './form-components/DetailedQuestionPage';
+import { HomePage } from './form-components/HomePage';
 
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
@@ -49,7 +50,7 @@ function App() {
   return (
     <div className="App">
       {/*Header will contain navigation bar*/}
-      <header className="App-header">
+  <div className="App-NavBar">
   <Container fluid>
     <Col as={Button} onClick={updateHomePageButton}>Home</Col>
     <span></span>
@@ -57,37 +58,14 @@ function App() {
     <span></span>
     <Col as={Button} onClick={updateDetailedPageButton}>Detailed</Col>
   </Container>
-</header>
-<div className='App-body'>
-      {/*Home Page*/}
-      {isHomePage && 
-        <div>
-          <h1>Career Starter</h1>
-          <div className='container'>
-            <div className='search-wrapper'>Our basic questions quiz provides you with short, easy to answer prompts that can help
-                gauge a general career path for you!</div>
-            <div className='search-wrapper'>
-                    Our detailed questions quiz provides you with longer, and more in-depth prompts, that will be more 
-                    effective in gauging a specific career path that suits you!
-            </div>
-        </div>
-        </div>
-      }
-
-  {/*Basic Questions Page*/}
-  {isBasicPage && 
-    <div className='basic-page-container'>
-      <BasicQuestionsPage ></BasicQuestionsPage>
-    </div>
-  }
-     
-  {/*Detailed Questions Page*/}
-  {isDetailedPage && 
-    <div>
-     <DetailedQuestionsPage></DetailedQuestionsPage>
-    </div>
-  }
 </div>
+<div className='App-Body'>
+  {/*Home Page*/}
+  {isHomePage && <HomePage></HomePage>}
+  {/*Basic Questions Page*/}
+  {isBasicPage && <BasicQuestionsPage ></BasicQuestionsPage>}
+  {/*Detailed Questions Page*/}
+  {isDetailedPage && <DetailedQuestionsPage></DetailedQuestionsPage>}
   {/*Footer contains entry for the API key*/}
 <footer className='App-footer'>
 <Form>
@@ -97,6 +75,7 @@ function App() {
   <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
 </Form>
 </footer> 
+</div>
 </div>
 
 );  

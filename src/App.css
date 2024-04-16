@@ -2,7 +2,17 @@
 
 .App {
   text-align: center;
-  background-color: teal;
+  background-color: #FBEAEB;
+}
+
+.App-NavBar {
+  min-height: 50h;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  background-color: #2F3C7E;
 }
 
 Button{
@@ -15,12 +25,9 @@ Button{
 }
 
 .App-footer{
-  background-color: yellow;
+  background-color: #2F3C7E;
 }
 
-.App-body{
-  height: 5000px;
-}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -28,23 +35,14 @@ Button{
   }
 }
 
-.App-header {
+.DetailedPage {
   min-height: 50h;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  background-color: darkblue;
-}
-.App-details {
-  min-height: 50h;
+  height:fit-content;
   display: flex;
   flex-direction: column;
   align-items: left;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  background-color: #a8e1f7;
 }
 .App-link {
   color: #61dafb;
@@ -82,8 +80,5 @@ Button{
   margin: 20px 5px ;
   border-radius: 0.62em;
 }
-.basic-page-container {
-  flex: 1; /* Expand to fill remaining space */
-  overflow-y: auto; /* Add scrollbars if content exceeds height */
-}
+
 

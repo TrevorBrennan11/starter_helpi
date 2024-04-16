@@ -13,7 +13,7 @@ export function DetailedQuestionsPage(): JSX.Element {
 
     return (
         
-      <header className="App-details">
+      <div className="DetailedPage">
       <label>Detailed Questions Page</label>
       <p>Question 1: How inclined are you to take leadership roles when working in groups?</p> 
       <Form.Group controlId="Answer 1">
@@ -64,7 +64,7 @@ export function DetailedQuestionsPage(): JSX.Element {
         value={answers[6]}
         onChange={updateAnswers}/>
     </Form.Group>
-    </header>
+    </div>
     
     );
 }
