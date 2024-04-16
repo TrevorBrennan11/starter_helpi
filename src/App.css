@@ -48,6 +48,13 @@ Button{
   background-color: #a8e1f7;
 }
 
+.App-basic {
+  min-height: 50h;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .App-link {
   color: #61dafb;
 }
