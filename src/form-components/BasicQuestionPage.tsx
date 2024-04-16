@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
+import '../App.css';
 
 export function BasicQuestionsPage(): JSX.Element {
-    // This is the State (Model)
-    const [/*basicQuestion*/, setBasicQuestion] = useState<string>("Default");
+
+ // This is the State (Model)
+ const [/*basicQuestion*/, setBasicQuestion] = useState<string>("Default");
 
     // This is the Control
     function updateBasicQuestion(event: React.ChangeEvent<HTMLInputElement>) {
@@ -23,10 +25,9 @@ export function BasicQuestionsPage(): JSX.Element {
             // Append the given value
             setEmotions([...emotions, emotion]);
         }
-    }
-
-    return (
-        <div className="App-basic">
+     }     
+return (
+            <div className="BasicPage">
             <h1>Career Quiz Basic Questions</h1>
             <h3>
                 In order for us to estimate your personal Interests and Usual Style, you will first need to answer a series of questions. 
@@ -238,36 +239,115 @@ export function BasicQuestionsPage(): JSX.Element {
                 />
             </Form>
 
-            <p>Multi-Choice Question</p>
-            <Form>
-                <Form.Check
-                    type="checkbox"
-                    id="emotion-check-happy"
-                    label="Happy"
-                    name="emotions"
-                    value="happy"
-                    checked={emotions.includes("happy")}
-                    onChange={updateEmotion}
-                />
-                <Form.Check
-                    type="checkbox"
-                    id="emotion-check-sad"
-                    label="Sad"
-                    name="emotions"
-                    value="sad"
-                    checked={emotions.includes("sad")}
-                    onChange={updateEmotion}
-                />
-                <Form.Check
-                    type="checkbox"
-                    id="emotion-check-angry"
-                    label="Angry"
-                    name="emotions"
-                    value="angry"
-                    checked={emotions.includes("angry")}
-                    onChange={updateEmotion}
-                />
-            </Form>
+<p>Multi-Choice Question</p>
+            <Form.Check
+                type="checkbox"
+                id="emotion-check-happy"
+                label="Happy"
+                name="emotions"
+                value="happy"
+                checked={emotions.includes("happy")}
+                onChange={updateEmotion}
+            />
+            <Form.Check
+                type="checkbox"
+                id="emotion-check-sad"
+                label="Sad"
+                name="emotions"
+                value="sad"
+                checked={emotions.includes("sad")}
+                onChange={updateEmotion}
+            />
+            <Form.Check
+                type="checkbox"
+                id="emotion-check-angry"
+                label="Angry"
+                name="emotions"
+                value="angry"
+                checked={emotions.includes("angry")}
+                onChange={updateEmotion}
+            />
+
+<p>Multi-Choice Question</p>
+            <Form.Check
+                type="checkbox"
+                id="emotion-check-happy"
+                label="Happy"
+                name="emotions"
+                value="happy"
+                checked={emotions.includes("happy")}
+                onChange={updateEmotion}
+            />
+            <Form.Check
+                type="checkbox"
+                id="emotion-check-sad"
+                label="Sad"
+                name="emotions"
+                value="sad"
+                checked={emotions.includes("sad")}
+                onChange={updateEmotion}
+            />
+            <Form.Check
+                type="checkbox"
+                id="emotion-check-angry"
+                label="Angry"
+                name="emotions"
+                value="angry"
+                checked={emotions.includes("angry")}
+                onChange={updateEmotion}
+            />
+
+<p>This is just a radio type question </p>
+            <Form.Check
+                type="radio"
+                name="Career-Question"
+                onChange={updateBasicQuestion}
+                id="Career-Question"
+                label="Default"
+                value="Default"
+            />
+            <Form.Check
+                type="radio"
+                name="Career-Question"
+                onChange={updateBasicQuestion}
+                id="Career-Question"
+                label="Default"
+                value="Default"
+            />
+            <Form.Check
+                type="radio"
+                name="Career-Question"
+                onChange={updateBasicQuestion}
+                id="Career-Question"
+                label="Default"
+                value="Default"
+            />
+ <p>This is just a radio type question </p>
+            <Form.Check
+                type="radio"
+                name="Career-Question"
+                onChange={updateBasicQuestion}
+                id="Career-Question"
+                label="Default"
+                value="Default"
+            />
+            <Form.Check
+                type="radio"
+                name="Career-Question"
+                onChange={updateBasicQuestion}
+                id="Career-Question"
+                label="Default"
+                value="Default"
+            />
+            <Form.Check
+                type="radio"
+                name="Career-Question"
+                onChange={updateBasicQuestion}
+                id="Career-Question"
+                label="Default"
+                value="Default"
+            />
+
         </div>
     );
 }
