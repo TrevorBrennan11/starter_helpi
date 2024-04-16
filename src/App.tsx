@@ -53,11 +53,11 @@ function App() {
       {/*Header will contain navigation bar*/}
       <header className="App-header">
         <Container fluid>
-          <Col as={Button} onClick={updateHomePageButton}>Home</Col>
+          <Col className="Header-Button" as={Button} onClick={updateHomePageButton}>Home</Col>
           <span></span>
-          <Col as={Button} onClick={updateBasicPageButton}>Basic</Col>
+          <Col className="Header-Button" as={Button} onClick={updateBasicPageButton}>Basic</Col>
           <span></span>
-          <Col as={Button} onClick={updateDetailedPageButton}>Detailed</Col>
+          <Col className="Header-Button" as={Button} onClick={updateDetailedPageButton}>Detailed</Col>
         </Container>
       </header>
 
@@ -98,8 +98,18 @@ function App() {
       <footer className='App-footer'>
         <Form>
           <Form.Label>API Key:</Form.Label>
-          <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
-          <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
+          <div style={{display: 'flex'}}>
+            <Form.Control 
+              type="password" 
+              placeholder="Insert API Key Here" 
+              onChange={changeKey}>
+            </Form.Control>
+            <Button 
+              className="Submit-Button" 
+              onClick={handleSubmit}>
+              Submit
+            </Button>
+          </div>
         </Form>
       </footer> 
     </div>
