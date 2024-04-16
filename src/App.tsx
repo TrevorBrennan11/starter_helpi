@@ -13,14 +13,13 @@ const prevKey = localStorage.getItem(saveKeyData); //so it'll look like: MYKEY: 
 if (prevKey !== null) {
   keyData = JSON.parse(prevKey);
 }
+
 function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
   const [isHomePage, setIsHomePage] = useState<boolean>(true);
   const [isBasicPage, setIsBasicPage] = useState<boolean>(false);
   const [isDetailedPage, setIsDetailedPage] = useState<boolean>(false);
   
-
-
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
     localStorage.setItem(saveKeyData, JSON.stringify(key));
@@ -31,21 +30,24 @@ function App() {
   function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
     setKey(event.target.value);
   }
+
   function updateBasicPageButton() {
     setIsBasicPage(true);
     setIsDetailedPage(false);
     setIsHomePage(false);
-}
+  }
+
   function updateHomePageButton() {
   setIsHomePage(true);
   setIsBasicPage(false);
   setIsDetailedPage(false);
-}
+  }
+
   function updateDetailedPageButton() {
   setIsDetailedPage(true);
   setIsBasicPage(false);
   setIsHomePage(false);
-}
+  }
 
   return (
     <div className="App">
