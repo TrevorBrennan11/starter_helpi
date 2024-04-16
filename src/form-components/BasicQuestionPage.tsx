@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
+import '../App.css';
 
 export function BasicQuestionsPage(): JSX.Element {
-   
+
  // This is the State (Model)
  const [/*basicQuestion*/, setBasicQuestion] = useState<string>("Default");
 
@@ -27,7 +28,7 @@ if (emotions.includes(emotion)) {
         }
      }     
 return (
-            <div>
+            <div className="BasicPage">
             <h1>Career Quiz Basic Questions</h1>
             <h3>In order for us to estimate your personal Interests and Usual Style, you will first need to answer a series of questions. Read each pair of phrases below and decide which one of the two most describes you, then select the radio button next to that phrase. </h3>    
             <p>This is just a radio type question </p>

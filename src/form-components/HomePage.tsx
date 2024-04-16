@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
+import '../App.css';
 
 
 export function HomePage(): JSX.Element {
@@ -9,7 +10,7 @@ export function HomePage(): JSX.Element {
     return(
         <div >
           <h1>Career Starter</h1>
-          <div>
+          <div className="container">
             <div className='search-wrapper'>Our basic questions quiz provides you with short, easy to answer prompts that can help
                 gauge a general career path for you!</div>
             <div className='search-wrapper'>
