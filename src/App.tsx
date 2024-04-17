@@ -4,6 +4,7 @@ import { Button, Col, Container, Form } from 'react-bootstrap';
 import { BasicQuestionsPage } from './form-components/BasicQuestionPage';
 import { DetailedQuestionsPage } from './form-components/DetailedQuestionPage';
 import { HomePage } from './form-components/HomePage';
+import { ResultsPage } from './form-components/ResultsPage';
 
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
@@ -19,6 +20,7 @@ function App() {
   const [isHomePage, setIsHomePage] = useState<boolean>(true);
   const [isBasicPage, setIsBasicPage] = useState<boolean>(false);
   const [isDetailedPage, setIsDetailedPage] = useState<boolean>(false);
+  const [isResultsPage,setIsResultsPage] = useState<boolean>(false);
   
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
@@ -35,19 +37,29 @@ function App() {
     setIsBasicPage(true);
     setIsDetailedPage(false);
     setIsHomePage(false);
+    setIsResultsPage(false);
   }
 
   function updateHomePageButton() {
   setIsHomePage(true);
   setIsBasicPage(false);
   setIsDetailedPage(false);
+  setIsResultsPage(false);
   }
 
   function updateDetailedPageButton() {
   setIsDetailedPage(true);
   setIsBasicPage(false);
   setIsHomePage(false);
+  setIsResultsPage(false);
   }
+  
+  function updateResultsPageButton() {
+    setIsResultsPage(true);
+    setIsDetailedPage(false);
+    setIsBasicPage(false);
+    setIsHomePage(false);
+    }
 
   return (
     <div className="App">
@@ -59,6 +71,7 @@ function App() {
     <Col as={Button} onClick={updateBasicPageButton}>Basic</Col>
     <span></span>
     <Col as={Button} onClick={updateDetailedPageButton}>Detailed</Col>
+    <Col as={Button} onClick={updateResultsPageButton}>Results</Col>
   </Container>
 </div>
 <div className='App-Body'>
@@ -68,6 +81,7 @@ function App() {
   {isBasicPage && <BasicQuestionsPage ></BasicQuestionsPage>}
   {/*Detailed Questions Page*/}
   {isDetailedPage && <DetailedQuestionsPage></DetailedQuestionsPage>}
+  {isResultsPage && <ResultsPage></ResultsPage>}
   {/*Footer contains entry for the API key*/}
 <footer className='App-footer'>
 <Form>
