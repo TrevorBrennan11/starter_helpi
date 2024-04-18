@@ -38,50 +38,50 @@ function App() {
   }
 
   function updateHomePageButton() {
-  setIsHomePage(true);
-  setIsBasicPage(false);
-  setIsDetailedPage(false);
+    setIsHomePage(true);
+    setIsBasicPage(false);
+    setIsDetailedPage(false);
   }
 
   function updateDetailedPageButton() {
-  setIsDetailedPage(true);
-  setIsBasicPage(false);
-  setIsHomePage(false);
+    setIsDetailedPage(true);
+    setIsBasicPage(false);
+    setIsHomePage(false);
   }
 
   return (
     <div className="App">
       {/*Header will contain navigation bar*/}
-  <div className="App-NavBar">
-  <Container fluid>
-    <Col as={Button} onClick={updateHomePageButton}>Home</Col>
-    <span></span>
-    <Col as={Button} onClick={updateBasicPageButton}>Basic</Col>
-    <span></span>
-    <Col as={Button} onClick={updateDetailedPageButton}>Detailed</Col>
-  </Container>
-</div>
-<div className='App-Body'>
-  {/*Home Page*/}
-  {isHomePage && <HomePage></HomePage>}
-  {/*Basic Questions Page*/}
-  {isBasicPage && <BasicQuestionsPage ></BasicQuestionsPage>}
-  {/*Detailed Questions Page*/}
-  {isDetailedPage && <DetailedQuestionsPage></DetailedQuestionsPage>}
-  {/*Footer contains entry for the API key*/}
-<footer className='App-footer'>
-<Form>
-  <Form.Label>API Key:</Form.Label>
-  <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
-  <br></br>
-  <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
-</Form>
-</footer> 
-</div>
-</div>
-
-);  
-
+      <div className="App-NavBar">
+        <Container fluid>
+          <Col as={Button} className='Header-Button' onClick={updateHomePageButton}>Home</Col>
+          <span></span>
+          <Col as={Button} className='Header-Button' onClick={updateBasicPageButton}>Basic</Col>
+          <span></span>
+          <Col as={Button} className='Header-Button' onClick={updateDetailedPageButton}>Detailed</Col>
+        </Container>
+        {isBasicPage && <progress className='Progress-Bar'></progress>}
+        {isDetailedPage && <progress className='Progress-Bar'></progress>}
+      </div>
+      <div className='App-Body'>
+        {/*Home Page*/}
+        {isHomePage && <HomePage></HomePage>}
+        {/*Basic Questions Page*/}
+        {isBasicPage && <BasicQuestionsPage ></BasicQuestionsPage>}
+        {/*Detailed Questions Page*/}
+        {isDetailedPage && <DetailedQuestionsPage></DetailedQuestionsPage>}
+      </div>
+      {/*Footer contains entry for the API key*/}
+      <footer className='App-footer'>
+        <Form.Label>API Key:</Form.Label>
+        <div style={{display: 'flex'}}>
+          <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
+          <br></br>
+          <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
+        </div>
+      </footer>
+    </div>
+  );
 }
 
 export default App;

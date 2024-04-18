@@ -9,31 +9,27 @@ export function DetailedQuestionsPage(): JSX.Element {
   const [answer5, setAnswer5] = useState<string> ("");
   const [answer6, setAnswer6] = useState<string> ("");
   const [answer7, setAnswer7] = useState<string> ("");
-  //const [answer, setAnswer] = useState<string> ("");
-  //const answers: string[] = [];
 
   function updateAnswer1 (event: React.ChangeEvent<HTMLInputElement>) {
     setAnswer1(event.target.value)
-    //answers.push(answer);
   }
   function updateAnswer2 (event: React.ChangeEvent<HTMLInputElement>) {
     setAnswer2(event.target.value)
-    //answers.push(answer);
-  }function updateAnswer3 (event: React.ChangeEvent<HTMLInputElement>) {
+  }
+  function updateAnswer3 (event: React.ChangeEvent<HTMLInputElement>) {
     setAnswer3(event.target.value)
-    //answers.push(answer);
-  }function updateAnswer4 (event: React.ChangeEvent<HTMLInputElement>) {
+  }
+  function updateAnswer4 (event: React.ChangeEvent<HTMLInputElement>) {
     setAnswer4(event.target.value)
-    //answers.push(answer);
-  }function updateAnswer5 (event: React.ChangeEvent<HTMLInputElement>) {
+  }
+  function updateAnswer5 (event: React.ChangeEvent<HTMLInputElement>) {
     setAnswer5(event.target.value)
-    //answers.push(answer);
-  }function updateAnswer6 (event: React.ChangeEvent<HTMLInputElement>) {
+  }
+  function updateAnswer6 (event: React.ChangeEvent<HTMLInputElement>) {
     setAnswer6(event.target.value)
-    //answers.push(answer);
-  }function updateAnswer7 (event: React.ChangeEvent<HTMLInputElement>) {
+  }
+  function updateAnswer7 (event: React.ChangeEvent<HTMLInputElement>) {
     setAnswer7(event.target.value)
-    //answers.push(answer);
   }
 
   return ( 
