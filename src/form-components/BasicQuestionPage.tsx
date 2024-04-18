@@ -3,10 +3,10 @@ import { Form } from "react-bootstrap";
 import '../App.css';
 
 export function BasicQuestionsPage(): JSX.Element {
-    const [answer1, setAnswer1] = useState<string> ("");
-    const [answer2, setAnswer2] = useState<string> ("");
-    const [answer3, setAnswer3] = useState<string> ("");
-    const [answer4, setAnswer4] = useState<string> ("");
+    const [/**answer1**/, setAnswer1] = useState<string> ("");
+    const [/**answer2**/, setAnswer2] = useState<string> ("");
+    const [/**answer3**/, setAnswer3] = useState<string> ("");
+    const [/**answer4**/, setAnswer4] = useState<string> ("");
     const [answer5set, setAnswer5] = useState<string[]> (["stuff"]);
     const [answer6set, setAnswer6] = useState<string[]> (["Inside"]);
     const [answer7set, setAnswer7] = useState<string[]> (["Handy"]);
