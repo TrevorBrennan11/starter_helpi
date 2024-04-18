@@ -60,8 +60,6 @@ function App() {
           <span></span>
           <Col as={Button} className='Header-Button' onClick={updateDetailedPageButton}>Detailed</Col>
         </Container>
-        {isBasicPage && <progress className='Progress-Bar'></progress>}
-        {isDetailedPage && <progress className='Progress-Bar'></progress>}
       </div>
       <div className='App-Body'>
         {/*Home Page*/}

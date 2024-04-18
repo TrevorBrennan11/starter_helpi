@@ -8,9 +8,15 @@
   border: 1px solid gray;
 }
 
+.Progress-Bar {
+  height: 40px;
+  width: 50%;
+}
+
 .App {
   text-align: center;
   display: flex;
+  flex-direction: column;
   height: 100vh;
   flex-flow: column;
 }
