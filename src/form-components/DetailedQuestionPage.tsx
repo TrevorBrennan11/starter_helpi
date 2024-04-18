@@ -37,7 +37,7 @@ export function DetailedQuestionsPage(): JSX.Element {
   }
 
   return ( 
-    <div className="App-detailed">
+    <div className="DetailedPage">
       <h1>Career Quiz Detailed Questions</h1>
       <p>Question 1: How inclined are you to take leadership roles when working in groups?</p> 
       <Form.Group controlId="Answer 1">
