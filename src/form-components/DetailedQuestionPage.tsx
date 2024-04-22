@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Form } from "react-bootstrap";
+import {Button, Form } from "react-bootstrap";
 export function DetailedQuestionsPage(): JSX.Element {
   const [answer1, setAnswer1] = useState<string> ("");
   const [answer2, setAnswer2] = useState<string> ("");
@@ -71,7 +71,8 @@ export function DetailedQuestionsPage(): JSX.Element {
           value={answer3}
           onChange={updateAnswer3}/>
       </Form.Group>
-      {answer1 && answer2 && answer3 && answer4 && answer5 && answer6 && answer7 && <div> <h2>You completed the quiz, congrats!</h2></div>}
+      {answer1 && answer2 && answer3 && answer4 && answer5 && answer6 && answer7 && <div><h2>You completed the quiz, congrats!</h2>
+       <Button>Get Answer!</Button></div>}
       <p>Question 4: What part of classes do you excel the most in (group work, exams, projects, etc)</p>
       <Form.Group controlId="Answer 4">
         <Form.Control
