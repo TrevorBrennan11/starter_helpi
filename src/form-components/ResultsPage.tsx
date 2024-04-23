@@ -1,9 +1,11 @@
 import '../App.css';
-export function ResultsPage(): JSX.Element {
+import {response} from "./DetailedQuestionPage"
 
-return ( 
+export function ResultsPage(): JSX.Element {
+    return ( 
     <div className="App-detailed">
-    <h1>Here are your results!</h1>
+    <h2>Here are your results!</h2>
+    <p>{response}</p>
     </div>
   );
 }
