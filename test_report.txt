@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (43 ms)
+  ✕ renders learn react link (42 ms)
 
   ● renders learn react link
 
@@ -122,21 +122,21 @@ FAIL src/App.test.tsx
 ---------------------------|---------|----------|---------|---------|-------------------
 File                       | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ---------------------------|---------|----------|---------|---------|-------------------
-All files                  |   12.94 |       30 |    6.66 |   13.41 |                   
+All files                  |    12.5 |       30 |    5.88 |   13.09 |                   
  src                       |   24.39 |    42.85 |   11.11 |   24.39 |                   
   App.tsx                  |   33.33 |       60 |   14.28 |   33.33 | 15,27-61          
   index.tsx                |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts       |       0 |        0 |       0 |       0 | 3-10              
- src/form-components       |    2.27 |        0 |    4.76 |    2.43 |                   
+ src/form-components       |    2.12 |        0 |       4 |    2.32 |                   
   BasicQuestionPage.tsx    |       0 |        0 |       0 |       0 | 6-70              
-  DetailedQuestionPage.tsx |       0 |      100 |       0 |       0 | 5-39              
+  DetailedQuestionPage.tsx |       0 |      100 |       0 |       0 | 7-76              
   HomePage.tsx             |     100 |      100 |     100 |     100 |                   
   ResultsPage.tsx          |       0 |      100 |       0 |       0 | 4                 
 ---------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.896 s
+Time:        2.956 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
