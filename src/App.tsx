@@ -4,6 +4,7 @@ import { Button, Col, Container, Form } from 'react-bootstrap';
 import { BasicQuestionsPage } from './form-components/BasicQuestionPage';
 import { DetailedQuestionsPage } from './form-components/DetailedQuestionPage';
 import { HomePage } from './form-components/HomePage';
+import { ResultsPage } from './form-components/ResultsPage';
 
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
@@ -19,6 +20,7 @@ function App() {
   const [isHomePage, setIsHomePage] = useState<boolean>(true);
   const [isBasicPage, setIsBasicPage] = useState<boolean>(false);
   const [isDetailedPage, setIsDetailedPage] = useState<boolean>(false);
+  const [isResultsPage,setIsResultsPage] = useState<boolean>(false);
   
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
@@ -35,51 +37,64 @@ function App() {
     setIsBasicPage(true);
     setIsDetailedPage(false);
     setIsHomePage(false);
+    setIsResultsPage(false);
   }
 
   function updateHomePageButton() {
-    setIsHomePage(true);
-    setIsBasicPage(false);
-    setIsDetailedPage(false);
+  setIsHomePage(true);
+  setIsBasicPage(false);
+  setIsDetailedPage(false);
+  setIsResultsPage(false);
   }
 
   function updateDetailedPageButton() {
-    setIsDetailedPage(true);
+  setIsDetailedPage(true);
+  setIsBasicPage(false);
+  setIsHomePage(false);
+  setIsResultsPage(false);
+  }
+  
+  function updateResultsPageButton() {
+    setIsResultsPage(true);
+    setIsDetailedPage(false);
     setIsBasicPage(false);
     setIsHomePage(false);
-  }
+    }
 
   return (
     <div className="App">
       {/*Header will contain navigation bar*/}
-      <div className="App-NavBar">
-        <Container fluid>
-          <Col as={Button} className='Header-Button' onClick={updateHomePageButton}>Home</Col>
-          <span></span>
-          <Col as={Button} className='Header-Button' onClick={updateBasicPageButton}>Basic</Col>
-          <span></span>
-          <Col as={Button} className='Header-Button' onClick={updateDetailedPageButton}>Detailed</Col>
-        </Container>
-      </div>
-      <div className='App-Body'>
-        {/*Home Page*/}
-        {isHomePage && <HomePage></HomePage>}
-        {/*Basic Questions Page*/}
-        {isBasicPage && <BasicQuestionsPage ></BasicQuestionsPage>}
-        {/*Detailed Questions Page*/}
-        {isDetailedPage && <DetailedQuestionsPage></DetailedQuestionsPage>}
-      </div>
-      {/*Footer contains entry for the API key*/}
-      <footer className='App-footer'>
-        <Form.Label>API Key:</Form.Label>
-        <div style={{display: 'flex'}}>
-          <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
-          <br></br>
-          <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
-        </div>
-      </footer>
-    </div>
-  );
+  <div className="App-NavBar">
+  <Container fluid>
+    <Col as={Button} onClick={updateHomePageButton}>Home</Col>
+    <span></span>
+    <Col as={Button} onClick={updateBasicPageButton}>Basic</Col>
+    <span></span>
+    <Col as={Button} onClick={updateDetailedPageButton}>Detailed</Col>
+    <Col as={Button} onClick={updateResultsPageButton}>Results</Col>
+  </Container>
+</div>
+<div className='App-Body'>
+  {/*Home Page*/}
+  {isHomePage && <HomePage></HomePage>}
+  {/*Basic Questions Page*/}
+  {isBasicPage && <BasicQuestionsPage ></BasicQuestionsPage>}
+  {/*Detailed Questions Page*/}
+  {isDetailedPage && <DetailedQuestionsPage></DetailedQuestionsPage>}
+  {isResultsPage && <ResultsPage></ResultsPage>}
+  {/*Footer contains entry for the API key*/}
+<footer className='App-footer'>
+<Form>
+  <Form.Label>API Key:</Form.Label>
+  <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
+  <br></br>
+  <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
+</Form>
+</footer> 
+</div>
+</div>
+
+);  
 }
 
 export default App;
