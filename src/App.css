@@ -3,21 +3,25 @@
 }
 
 .Submit-Button {
-  font-size: 12px;
   color: black;
   background-color: white;
   border: 1px solid gray;
 }
 
+.Progress-Bar {
+  height: 40px;
+  width: 50%;
+}
+
 .App {
   text-align: center;
   display: flex;
+  flex-direction: column;
   height: 100vh;
   flex-flow: column;
 }
 
 .App-NavBar {
-  height: 80px;
   position: fixed;
   top: 0;
   width: 100%;
@@ -36,56 +40,16 @@
   padding-top: 80px;
 }
 
-Button{
-  margin: 25px;
-}
-
-.App-header {
-  height: 80px;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  background-color: darkblue;
-}
-
-.App-body{
-  background-color: lightskyblue;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 100px;
-  padding-top: 80px;
-}
-
 .App-footer{
   background-color: darkblue;
   color: white;
-  height: 80px;
   position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
   bottom: 0;
   width: 100%;
-
-}
-
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-.search-wrapper{
-  display: inline-block;
-  grid-template-columns: 9fr 3fr;
-  gap: 1.25em;
-  background-color: red;
-  margin: 20px 5px ;
-  border-radius: 0.62em;
+  height: 80px;
 }
 
 .DetailedPage {
@@ -94,36 +58,20 @@ Button{
   flex-direction: column;
   align-items: center;
 }
-.BasicPage{
+
+.BasicPage {
   min-height: 50h;
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .Header-Button {
   margin: 20px;
-}
-
-.Submit-Button {
-  font-size: 12px;
-  color: black;
-  background-color: white;
-  border: 1px solid gray;
 }
 
 .container{
