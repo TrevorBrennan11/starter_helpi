@@ -4,6 +4,7 @@ import { Button, Col, Container, Form } from 'react-bootstrap';
 import { BasicQuestionsPage } from './form-components/BasicQuestionPage';
 import { DetailedQuestionsPage } from './form-components/DetailedQuestionPage';
 import { HomePage } from './form-components/HomePage';
+import { generateResponse } from './chatapi';
 
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
@@ -19,6 +20,12 @@ function App() {
   const [isHomePage, setIsHomePage] = useState<boolean>(true);
   const [isBasicPage, setIsBasicPage] = useState<boolean>(false);
   const [isDetailedPage, setIsDetailedPage] = useState<boolean>(false);
+
+  function changePage(page: string) {
+    setIsHomePage(page === 'Home');
+    setIsBasicPage(page === 'Basic');
+    setIsDetailedPage(page === 'Detailed');
+  }
   
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
@@ -48,24 +55,22 @@ function App() {
   setIsBasicPage(false);
   setIsHomePage(false);
   }
-
+  
   return (
     <div className="App">
       {/*Header will contain navigation bar*/}
   <div className="App-NavBar">
   <Container fluid>
-    <Col as={Button} onClick={updateHomePageButton}>Home</Col>
-    <span></span>
-    <Col as={Button} onClick={updateBasicPageButton}>Basic</Col>
-    <span></span>
-    <Col as={Button} onClick={updateDetailedPageButton}>Detailed</Col>
+  <Col as={Button} onClick={() => changePage('Home')}>Home</Col>
+<Col as={Button} onClick={() => changePage('Basic')}>Basic</Col>
+<Col as={Button} onClick={() => changePage('Detailed')}>Detailed</Col>
   </Container>
 </div>
 <div className='App-Body'>
   {/*Home Page*/}
   {isHomePage && <HomePage></HomePage>}
   {/*Basic Questions Page*/}
-  {isBasicPage && <BasicQuestionsPage ></BasicQuestionsPage>}
+  {isBasicPage && <BasicQuestionsPage changePage={changePage}  ></BasicQuestionsPage>}
   {/*Detailed Questions Page*/}
   {isDetailedPage && <DetailedQuestionsPage></DetailedQuestionsPage>}
   {/*Footer contains entry for the API key*/}
