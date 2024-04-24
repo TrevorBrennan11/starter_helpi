@@ -66,12 +66,12 @@ function App() {
       {/*Header will contain navigation bar*/}
       <div className="App-NavBar">
         <Container fluid>
-          <Col as={Button} onClick={updateHomePageButton}>Home</Col>
+          <Col className = "Header-Button" as={Button} onClick={updateHomePageButton}>Home</Col>
           <span></span>
-          <Col as={Button} onClick={updateBasicPageButton}>Basic</Col>
+          <Col className = "Header-Button" as={Button} onClick={updateBasicPageButton}>Basic</Col>
           <span></span>
-          <Col as={Button} onClick={updateDetailedPageButton}>Detailed</Col>
-          <Col as={Button} onClick={updateResultsPageButton}>Results</Col>
+          <Col className = "Header-Button" as={Button} onClick={updateDetailedPageButton}>Detailed</Col>
+          <Col className = "Header-Button" as={Button} onClick={updateResultsPageButton}>Results</Col>
         </Container>
       </div>
         <div className='App-Body'>
@@ -83,15 +83,16 @@ function App() {
         {isDetailedPage && <DetailedQuestionsPage></DetailedQuestionsPage>}
         {isResultsPage && <ResultsPage></ResultsPage>}
         {/*Footer contains entry for the API key*/}
-        <footer className='App-footer'>
-          <Form>
-            <Form.Label>API Key:</Form.Label>
-            <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
-            <br></br>
-            <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
-          </Form>
-        </footer> 
       </div>
+      <footer className='App-footer'>
+        <Form>
+          <Form.Label>API Key:</Form.Label>
+          <div style={{display: 'flex', flexDirection: 'row'}}>
+            <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
+            <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
+          </div>
+        </Form>
+      </footer> 
     </div>
   );  
 }
