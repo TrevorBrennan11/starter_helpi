@@ -1,7 +1,7 @@
 import '../App.css';
 import {detailedResponse} from "./DetailedQuestionPage"
 import { basicResponse } from './BasicQuestionPage';
-import { isBasicDone } from './BasicQuestionPage';
+
 
 export function ResultsPage(): JSX.Element {
     return ( 
