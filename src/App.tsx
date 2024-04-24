@@ -78,7 +78,7 @@ function App() {
   {/*Home Page*/}
   {isHomePage && <HomePage></HomePage>}
   {/*Basic Questions Page*/}
-  {isBasicPage && <BasicQuestionsPage changePage={changePage}  ></BasicQuestionsPage>}
+  {isBasicPage && <BasicQuestionsPage></BasicQuestionsPage>}
   {/*Detailed Questions Page*/}
   {isDetailedPage && <DetailedQuestionsPage></DetailedQuestionsPage>}
   {isResultsPage && <ResultsPage></ResultsPage>}
