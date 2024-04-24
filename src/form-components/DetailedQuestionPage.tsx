@@ -1,6 +1,10 @@
 
+import OpenAI from "openai";
 import { useState } from "react";
-import { Form } from "react-bootstrap";
+import { Button, Col, Form } from "react-bootstrap";
+
+export let response = "";
+const openai = new OpenAI({apiKey: JSON.parse(localStorage.getItem("MYKEY") as string), dangerouslyAllowBrowser: true});
 
 export function DetailedQuestionsPage(): JSX.Element {
 
@@ -21,7 +25,23 @@ export function DetailedQuestionsPage(): JSX.Element {
     let totalAnswered = updatedAnswers.filter(answer => !!answer).length;
     setNumAnswered(totalAnswered);
   }
+  async function showMyResults() {
+  const completion = await openai.chat.completions.create({
+    messages: [{"role": "system", "content": "You are a career counselor who is giving me a list of careers that will suit me."},
+        {"role": "user", "content": "When asked 'How inclined are you to take leadership roles when working in groups?' they responded" + answers[0]},
+        {"role": "user", "content": "When asked 'What physical environment do you prefer to be in, beyond just working?' they responded" + answers[1]},
+        {"role": "user", "content": "When asked 'If you could do anything, without needing to worry about money, what would be and why?' they responded" + answers[2]},
+        {"role": "user", "content": "When asked 'What part of classes do you excel the most in (group work, exams, projects, etc)' they responded" + answers[3]},
+        {"role": "user", "content": "When asked 'What was your favorite class you've taken, and why? Be specific about the class!' they responded" + answers[4]},
+        {"role": "user", "content": "When asked 'What is a work environment you did not work well in at all, and would not like to return to?' they responded" + answers[5]},
+        {"role": "user", "content": "When asked 'What aspect of working are you most looking forward to in the future?' they responded" + answers[6]},],
+    model: "gpt-3.5-turbo",
+  });
 
+  console.log(completion.choices[0].message.content);
+  response = JSON.stringify(completion.choices[0].message.content);
+
+}
   return ( 
     <div className="DetailedPage">
       <h1>Career Quiz Detailed Questions</h1>
@@ -48,6 +68,9 @@ export function DetailedQuestionsPage(): JSX.Element {
           onChange={(e) => updateAnswer(2, e.target.value)}/>
       </Form.Group>
       <p>Question 4: What part of classes do you excel the most in (group work, exams, projects, etc)</p>
+      {answers[0] && answers[1] && answers[2] && answers[3] && answers[4] && answers[5] && answers[6] && <div>
+        <Col as={Button} onClick={showMyResults}>Home</Col>
+    <span></span><h2>Congrats you completed the quiz!</h2></div>}
       <Form.Group controlId="Answer 4">
         <Form.Control
           placeholder="Answer here"
