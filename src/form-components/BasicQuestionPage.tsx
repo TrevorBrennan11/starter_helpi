@@ -1,284 +1,325 @@
 import React, { useState } from "react";
-import { Form } from "react-bootstrap";
 import '../App.css';
+import OpenAI from "openai";
+import { Button, Form } from "react-bootstrap";
 
-export function BasicQuestionsPage(): JSX.Element {
-    const [/**answer1**/, setAnswer1] = useState<string> ("");
-    const [/**answer2**/, setAnswer2] = useState<string> ("");
-    const [/**answer3**/, setAnswer3] = useState<string> ("");
-    const [/**answer4**/, setAnswer4] = useState<string> ("");
-    const [answer5set, setAnswer5] = useState<string[]> (["stuff"]);
-    const [answer6set, setAnswer6] = useState<string[]> (["Inside"]);
-    const [answer7set, setAnswer7] = useState<string[]> (["Handy"]);
+export let basicResponse = "";
+const openai = new OpenAI({apiKey: JSON.parse(localStorage.getItem("MYKEY") as string), dangerouslyAllowBrowser: true});
+export let isBasicDone = false;
 
-    //const [answer, setAnswer] = useState<string> ("");
-    //const answers: string[] = [];
+
+
+export function BasicQuestionsPage():  JSX.Element {
+
+    
+  const [answers, setAnswers] = useState<string[]>(["", "", "", "", "", "", ""]);
+  const [numAnswered, setNumAnswered] = useState<number>(0);
+
+
+  function updateNumAnswered(updatedAnswers: string[]) {
+    let totalAnswered = updatedAnswers.filter(answer => !!answer).length;
+    setNumAnswered(totalAnswered);
+  }
+
+  function updateAnswer(index: number, input: string) {
+    setAnswers(prevAnswers => {
+      const updatedAnswers = [...prevAnswers];
+      updatedAnswers[index] = input;
+      updateNumAnswered(updatedAnswers);
+      console.log(answers);
+      return updatedAnswers;
+    });
+
+  }
+
+  //change this functiond de=dprifnreijbfieriuerrjenfjr f
+
+  async function showMyResults() {
+    const completion = await openai.chat.completions.create({
+      messages: [{"role": "system", "content": "You are a career-starter assistant, skilled in recommending three jobs starting with the most compatabile."},
+          {"role": "user", "content": "When asked 'What kind of workplace environment interests you?' they responded" + answers[0]},
+          {"role": "user", "content": "When asked 'What social cause do you care about the most?' they responded" + answers[1]},
+          {"role": "user", "content": "When asked 'Congrats you have the day off! How will you spend your spare time?' they responded" + answers[2]},
+          {"role": "user", "content": "When asked 'What’s your preferred work style?' they responded" + answers[3]},
+          {"role": "user", "content": "When asked 'Which of the following environments do you thrive in?' they responded" + answers[4]},
+          {"role": "user", "content": "When asked 'Which of the following best describes your preferred work style?' they responded" + answers[5]},
+          {"role": "user", "content": "When asked 'What kind of tasks do you enjoy doing in your free time?' they responded" + answers[6]},],
+      model: "gpt-4-turbo",
+    });
   
-    function updateAnswer1 (event: React.ChangeEvent<HTMLInputElement>) {
-      setAnswer1(event.target.value)
-      //answers.push(answer);
-    }
-    function updateAnswer2 (event: React.ChangeEvent<HTMLInputElement>) {
-      setAnswer2(event.target.value)
-      //answers.push(answer);
-    }
-    function updateAnswer3 (event: React.ChangeEvent<HTMLInputElement>) {
-      setAnswer3(event.target.value)
-      //answers.push(answer);
-    }
-    function updateAnswer4 (event: React.ChangeEvent<HTMLInputElement>) {
-        setAnswer4(event.target.value)
-        //answers.push(answer);
-      }
-    function updateAnswer5(event: React.ChangeEvent<HTMLInputElement>) {
-        const option = event.target.value;
-        
-        if (answer5set.includes(option)) {
-            setAnswer5(answer5set.filter((e) => e !== option));
-            //answers.push(answer);
-        } else {
-            setAnswer5([...answer5set, option]);
-            //answers.push(answer);
-        }
-    }   
-    function updateAnswer6(event: React.ChangeEvent<HTMLInputElement>) {
-        const option = event.target.value;
-        
-        if (answer6set.includes(option)) {
-            setAnswer6(answer6set.filter((e) => e !== option));
-            //answers.push(answer);
-        } else {
-            setAnswer6([...answer6set, option]);
-            //answers.push(answer);
-        }
-    } 
-    function updateAnswer7(event: React.ChangeEvent<HTMLInputElement>) {
-        const option = event.target.value;
-        
-        if (answer7set.includes(option)) {
-            setAnswer7(answer7set.filter((e) => e !== option));
-            //answers.push(answer);
-        } else {
-            setAnswer7([...answer7set, option]);
-            //answers.push(answer);
-        }
-    }   
-
-
+    console.log(completion.choices[0].message.content);
+    basicResponse = JSON.stringify(completion.choices[0].message.content);
+    isBasicDone = true;
+  
+  }
     
    
 return (
-            <div className="BasicPage">
+        <div className="BasicPage">
             <h1>Career Quiz Basic Questions</h1>
-            <h3>
-                In order for us to estimate your personal Interests and Usual Style, you will first need to answer a series of questions. 
-                Read each pair of phrases below and decide which one of the two most describes you, then select the radio button next to that phrase.
-            </h3>
-
-            <p>This is just a radio type question </p>
+            <progress className="Progress-Bar" value={numAnswered} max={7}></progress>
+            
+            <p>Question 1: What kind of workplace environment interests you? </p>
             <Form>
                 <Form.Check
                     type="radio"
-                    name="Career-Question"
-                    onChange={updateAnswer1}
-                    id="Career-Question"
-                    label="Default"
-                    value="Default"
+                    name="Career-Question1"
+                    onChange={(e) => updateAnswer(0, e.target.value)}
+                    id="Career-Question1"
+                    label="Working outdoors"
+                    value="Working outdoors"
                 />
                 <Form.Check
                     type="radio"
-                    name="Career-Question"
-                    onChange={updateAnswer1}
-                    id="Career-Question"
-                    label="Default"
-                    value="Default"
+                    name="Career-Question1"
+                    onChange={(e) => updateAnswer(0, e.target.value)}
+                    id="Career-Question1"
+                    label="Working in an office"
+                    value="Working in an office"
                 />
                 <Form.Check
                     type="radio"
-                    name="Career-Question"
-                    onChange={updateAnswer1}
-                    id="Career-Question"
-                    label="Default"
-                    value="Default"
+                    name="Career-Question1"
+                    onChange={(e) => updateAnswer(0, e.target.value)}
+                    id="Career-Question1"
+                    label="Working in a lab"
+                    value="Working in a lab"
                 />
+                <Form.Check
+                    type="radio"
+                    name="Career-Question1"
+                    onChange={(e) => updateAnswer(0, e.target.value)}
+                    id="Career-Question1"
+                    label="Working in a classroom"
+                    value="Working in a classroom"
+                />
+                
             </Form>
-
-            <p>This is just a radio type question </p>
+            <p>Question 2: What social cause do you care about the most? </p>
             <Form>
                 <Form.Check
                     type="radio"
-                    name="Career-Question"
-                    onChange={updateAnswer2}
-                    id="Career-Question"
-                    label="Default"
-                    value="Default"
+                    name="Career-Question2"
+                    onChange={(e) => updateAnswer(1, e.target.value)}
+                    id="Career-Question2"
+                    label="Environmental sustainability"
+                    value="Environmental sustainability"
+                    
                 />
                 <Form.Check
                     type="radio"
-                    name="Career-Question"
-                    onChange={updateAnswer2}
-                    id="Career-Question"
-                    label="Default"
-                    value="Default"
+                    name="Career-Question2"
+                    onChange={(e) => updateAnswer(1, e.target.value)}
+                    id="Career-Question2"
+                    label="Social justice and equity"
+                    value="Social justice and equity"
                 />
                 <Form.Check
                     type="radio"
-                    name="Career-Question"
-                    onChange={updateAnswer2}
-                    id="Career-Question"
-                    label="Default"
-                    value="Default"
+                    name="Career-Question2"
+                    onChange={(e) => updateAnswer(1, e.target.value)}
+                    id="Career-Question2"
+                    label="Education and Youth development"
+                    value="Education and Youth development"
                 />
+                <Form.Check
+                    type="radio"
+                    name="Career-Question2"
+                    onChange={(e) => updateAnswer(1, e.target.value)}
+                    id="Career-Question2"
+                    label="Public health and wellness"
+                    value="Public health and wellness"
+                />
+                
             </Form>
-
-            <p>This is just a radio type question </p>
+            <p>Question 3:Congrats you have the day off! How will you spend your spare time?</p>
             <Form>
                 <Form.Check
                     type="radio"
-                    name="Career-Question"
-                    onChange={updateAnswer3}
-                    id="Career-Question"
-                    label="Default"
-                    value="Default"
+                    name="Career-Question3"
+                    onChange={(e) => updateAnswer(2, e.target.value)}
+                    id="Career-Question3"
+                    label="Exploring new hobbies and interests"
+                    value="Exploring new hobbies and interests"
                 />
                 <Form.Check
                     type="radio"
-                    name="Career-Question"
-                    onChange={updateAnswer3}
-                    id="Career-Question"
-                    label="Default"
-                    value="Default"
+                    name="Career-Question3"
+                    onChange={(e) => updateAnswer(2, e.target.value)}
+                    id="Career-Question3"
+                    label="Volunteering or giving back to my community"
+                    value="Volunteering or giving back to my community"
                 />
                 <Form.Check
                     type="radio"
-                    name="Career-Question"
-                    onChange={updateAnswer3}
-                    id="Career-Question"
-                    label="Default"
-                    value="Default"
+                    name="Career-Question3"
+                    onChange={(e) => updateAnswer(2, e.target.value)}
+                    id="Career-Question3"
+                    label="Socializing with friends and family"
+                    value="Socializing with friends and family"
                 />
+                <Form.Check
+                    type="radio"
+                    name="Career-Question3"
+                    onChange={(e) => updateAnswer(2, e.target.value)}
+                    id="Career-Question3"
+                    label="Relaxing and recharging at home"
+                    value="Relaxing and recharging at home"
+                />
+                
             </Form>
-
-            <p>This is just a radio type question </p>
+            <p>Question 4: What’s your preferred work style?</p>
             <Form>
                 <Form.Check
                     type="radio"
-                    name="Career-Question"
-                    onChange={updateAnswer4}
-                    id="Career-Question"
-                    label="Default"
-                    value="Default"
+                    name="Career-Question4"
+                    onChange={(e) => updateAnswer(3, e.target.value)}
+                    id="Career-Question4"
+                    label="Leading groups and taking on leadership roles"
+                    value="Leading groups and taking on leadership roles"
                 />
                 <Form.Check
                     type="radio"
-                    name="Career-Question"
-                    onChange={updateAnswer4}
-                    id="Career-Question"
-                    label="Default"
-                    value="Default"
+                    name="Career-Question4"
+                    onChange={(e) => updateAnswer(3, e.target.value)}
+                    id="Career-Question4"
+                    label="Participating with and collaborative projects"
+                    value="Participating with and collaborative projects"
                 />
                 <Form.Check
                     type="radio"
-                    name="Career-Question"
-                    onChange={updateAnswer4}
-                    id="Career-Question"
-                    label="Default"
-                    value="Default"
+                    name="Career-Question4"
+                    onChange={(e) => updateAnswer(3, e.target.value)}
+                    id="Career-Question4"
+                    label="Connecting one-on-one with others"
+                    value="Connecting one-on-one with others"
                 />
+                <Form.Check
+                    type="radio"
+                    name="Career-Question4"
+                    onChange={(e) => updateAnswer(3, e.target.value)}
+                    id="Career-Question4"
+                    label="I enjoy working independently"
+                    value="I enjoy working independently"
+                />
+                
             </Form>
-
-            <p>Multi-Choice Question</p>
+            <p>Question 5: Which of the following environments do you thrive in? </p>
             <Form>
                 <Form.Check
-                    type="checkbox"
-                    id="emotion-check-happy"
-                    label="Happy"
-                    name="emotions"
-                    value="happy"
-                    checked={answer5set.includes("happy")}
-                    onChange={updateAnswer5}
+                    type="radio"
+                    name="Career-Question5"
+                    onChange={(e) => updateAnswer(4, e.target.value)}
+                    id="Career-Question5"
+                    label="Analytical and structured environments with clear guidelines"
+                    value="Analytical and structured environments with clear guidelines"
                 />
                 <Form.Check
-                    type="checkbox"
-                    id="emotion-check-sad"
-                    label="Sad"
-                    name="emotions"
-                    value="sad"
-                    checked={answer5set.includes("sad")}
-                    onChange={updateAnswer5}
+                    type="radio"
+                    name="Career-Question5"
+                    onChange={(e) => updateAnswer(4, e.target.value)}
+                    id="Career-Question5"
+                    label=" Dynamic and creative environments with room for experimentation"
+                    value=" Dynamic and creative environments with room for experimentation"
                 />
                 <Form.Check
-                    type="checkbox"
-                    id="emotion-check-angry"
-                    label="Angry"
-                    name="emotions"
-                    value="angry"
-                    checked={answer5set.includes("angry")}
-                    onChange={updateAnswer5}
+                    type="radio"
+                    name="Career-Question5"
+                    onChange={(e) => updateAnswer(4, e.target.value)}
+                    id="Career-Question5"
+                    label="Supportive and collaborative environments where teamwork is valued"
+                    value="Supportive and collaborative environments where teamwork is valued"
                 />
+                <Form.Check
+                    type="radio"
+                    name="Career-Question5"
+                    onChange={(e) => updateAnswer(4, e.target.value)}
+                    id="Career-Question5"
+                    label="Active and practical environments where you can work with tools or equipment"
+                    value="Active and practical environments where you can work with tools or equipment"
+                />
+                
             </Form>
-
-            <p>Multi-Choice Question</p>
+            <p>Question 6: Which of the following best describes your preferred work style? </p>
             <Form>
                 <Form.Check
-                    type="checkbox"
-                    id="emotion-check-happy"
-                    label="Happy"
-                    name="emotions"
-                    value="happy"
-                    checked={answer6set.includes("happy")}
-                    onChange={updateAnswer6}
+                    type="radio"
+                    name="Career-Question6"
+                    onChange={(e) => updateAnswer(5, e.target.value)}
+                    id="Career-Question6"
+                    label="Methodical and detail-oriented"
+                    value="Methodical and detail-oriented"
                 />
                 <Form.Check
-                    type="checkbox"
-                    id="emotion-check-sad"
-                    label="Sad"
-                    name="emotions"
-                    value="sad"
-                    checked={answer6set.includes("sad")}
-                    onChange={updateAnswer6}
+                    type="radio"
+                    name="Career-Question6"
+                    onChange={(e) => updateAnswer(5, e.target.value)}
+                    id="Career-Question6"
+                    label="Flexible and adaptable"
+                    value="Flexible and adaptable"
                 />
                 <Form.Check
-                    type="checkbox"
-                    id="emotion-check-angry"
-                    label="Angry"
-                    name="emotions"
-                    value="angry"
-                    checked={answer6set.includes("angry")}
-                    onChange={updateAnswer6}
+                    type="radio"
+                    name="Career-Question6"
+                    onChange={(e) => updateAnswer(5, e.target.value)}
+                    id="Career-Question6"
+                    label="Empathetic and compassionate"
+                    value="Empathetic and compassionate"
                 />
+                <Form.Check
+                    type="radio"
+                    name="Career-Question6"
+                    onChange={(e) => updateAnswer(5, e.target.value)}
+                    id="Career-Question6"
+                    label="Practical and hands-on"
+                    value="Practical and hands-on"
+                />
+                
             </Form>
-
-            <p>Multi-Choice Question</p>
+            <p>Question 7: What kind of tasks do you enjoy doing in your free time?</p>
             <Form>
                 <Form.Check
-                    type="checkbox"
-                    id="emotion-check-happy"
-                    label="Happy"
-                    name="emotions"
-                    value="happy"
-                    checked={answer7set.includes("happy")}
-                    onChange={updateAnswer7}
+                    type="radio"
+                    name="Career-Question7"
+                    onChange={(e) => updateAnswer(6, e.target.value)}
+                    id="Career-Question7"
+                    label="Solving puzzles or playing strategy games"
+                    value="Solving puzzles or playing strategy games"
                 />
                 <Form.Check
-                    type="checkbox"
-                    id="emotion-check-sad"
-                    label="Sad"
-                    name="emotions"
-                    value="sad"
-                    checked={answer7set.includes("sad")}
-                    onChange={updateAnswer7}
+                    type="radio"
+                    name="Career-Question7"
+                    onChange={(e) => updateAnswer(6, e.target.value)}
+                    id="Career-Question7"
+                    label="Painting, drawing, or crafting"
+                    value="Painting, drawing, or crafting"
                 />
                 <Form.Check
-                    type="checkbox"
-                    id="emotion-check-angry"
-                    label="Angry"
-                    name="emotions"
-                    value="angry"
-                    checked={answer7set.includes("angry")}
-                    onChange={updateAnswer7}
+                    type="radio"
+                    name="Career-Question7"
+                    onChange={(e) => updateAnswer(6, e.target.value)}
+                    id="Career-Question7"
+                    label="Volunteering or helping others in need"
+                    value="Volunteering or helping others in need"
                 />
+                <Form.Check
+                    type="radio"
+                    name="Career-Question7"
+                    onChange={(e) => updateAnswer(6, e.target.value)}
+                    id="Career-Question7"
+                    label="Building or fixing things around the house"
+                    value="Building or fixing things around the house"
+                />
+                
             </Form>
+            
+           
+            
+           <div> {answers[0] && answers[1] && answers[2] && answers[3] && answers[4] && answers[5] && answers[6] && <div>
+        <Button onClick={showMyResults}>Submit!</Button>
+   </div>} </div>
+
+        
         </div>
     );
 }

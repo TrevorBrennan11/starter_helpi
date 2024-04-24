@@ -15,12 +15,15 @@ if (prevKey !== null) {
   keyData = JSON.parse(prevKey);
 }
 
+
+
 function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
   const [isHomePage, setIsHomePage] = useState<boolean>(true);
   const [isBasicPage, setIsBasicPage] = useState<boolean>(false);
   const [isDetailedPage, setIsDetailedPage] = useState<boolean>(false);
   const [isResultsPage,setIsResultsPage] = useState<boolean>(false);
+ 
   
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
@@ -54,7 +57,7 @@ function App() {
     setIsResultsPage(false);
   }
   
-  function updateResultsPageButton() {
+  async function updateResultsPageButton() {
     setIsResultsPage(true);
     setIsDetailedPage(false);
     setIsBasicPage(false);
