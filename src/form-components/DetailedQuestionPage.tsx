@@ -3,7 +3,7 @@ import OpenAI from "openai";
 import { useState } from "react";
 import { Button, Col, Form } from "react-bootstrap";
 
-export let response = "";
+export let detailedResponse = "";
 const openai = new OpenAI({apiKey: JSON.parse(localStorage.getItem("MYKEY") as string), dangerouslyAllowBrowser: true});
 
 export function DetailedQuestionsPage(): JSX.Element {
@@ -35,11 +35,11 @@ export function DetailedQuestionsPage(): JSX.Element {
         {"role": "user", "content": "When asked 'What was your favorite class you've taken, and why? Be specific about the class!' they responded" + answers[4]},
         {"role": "user", "content": "When asked 'What is a work environment you did not work well in at all, and would not like to return to?' they responded" + answers[5]},
         {"role": "user", "content": "When asked 'What aspect of working are you most looking forward to in the future?' they responded" + answers[6]},],
-    model: "gpt-3.5-turbo",
+    model: "gpt-4-turbo",
   });
 
   console.log(completion.choices[0].message.content);
-  response = JSON.stringify(completion.choices[0].message.content);
+  detailedResponse = JSON.stringify(completion.choices[0].message.content);
 
 }
   return ( 

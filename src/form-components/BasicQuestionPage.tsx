@@ -14,6 +14,7 @@ export function BasicQuestionsPage():  JSX.Element {
     
   const [answers, setAnswers] = useState<string[]>(["", "", "", "", "", "", ""]);
   const [numAnswered, setNumAnswered] = useState<number>(0);
+  
 
 
   function updateNumAnswered(updatedAnswers: string[]) {
@@ -50,6 +51,7 @@ export function BasicQuestionsPage():  JSX.Element {
     console.log(completion.choices[0].message.content);
     basicResponse = JSON.stringify(completion.choices[0].message.content);
     isBasicDone = true;
+    console.log(isBasicDone);
   
   }
     
@@ -319,7 +321,6 @@ return (
         <Button onClick={showMyResults}>Submit!</Button>
    </div>} </div>
 
-        
         </div>
     );
 }

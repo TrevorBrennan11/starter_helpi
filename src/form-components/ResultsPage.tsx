@@ -1,11 +1,14 @@
 import '../App.css';
-import {response} from "./DetailedQuestionPage"
+import {detailedResponse} from "./DetailedQuestionPage"
+import { basicResponse } from './BasicQuestionPage';
+import { isBasicDone } from './BasicQuestionPage';
 
 export function ResultsPage(): JSX.Element {
     return ( 
     <div className="App-detailed">
-    <h2>Here are your results!</h2>
-    <p>{response}</p>
+    <h2>Here are your results! </h2>
+    <p>{detailedResponse}</p>
+    <p>{basicResponse}</p>
     </div>
   );
 }
