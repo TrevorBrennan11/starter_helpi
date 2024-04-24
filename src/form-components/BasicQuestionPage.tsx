@@ -3,7 +3,7 @@ import '../App.css';
 import OpenAI from "openai";
 import { Button, Col, Form } from "react-bootstrap";
 
-export let response = "";
+export let basicResponse = "";
 const openai = new OpenAI({apiKey: JSON.parse(localStorage.getItem("MYKEY") as string), dangerouslyAllowBrowser: true});
 
 
@@ -12,8 +12,8 @@ export function BasicQuestionsPage():  JSX.Element {
 
     
   const [answers, setAnswers] = useState<string[]>(["", "", "", "", "", "", ""]);
-
   const [numAnswered, setNumAnswered] = useState<number>(0);
+
 
   function updateNumAnswered(updatedAnswers: string[]) {
     let totalAnswered = updatedAnswers.filter(answer => !!answer).length;
@@ -35,7 +35,7 @@ export function BasicQuestionsPage():  JSX.Element {
 
   async function showMyResults() {
     const completion = await openai.chat.completions.create({
-      messages: [{"role": "system", "content": "You are a career counselor who is giving me a list of careers that will suit me."},
+      messages: [{"role": "system", "content": "You are a career-starter assistant, skilled in recommending three jobs starting with the most compatabile."},
           {"role": "user", "content": "When asked 'What kind of workplace environment interests you?' they responded" + answers[0]},
           {"role": "user", "content": "When asked 'What social cause do you care about the most?' they responded" + answers[1]},
           {"role": "user", "content": "When asked 'Congrats you have the day off! How will you spend your spare time?' they responded" + answers[2]},
@@ -47,7 +47,7 @@ export function BasicQuestionsPage():  JSX.Element {
     });
   
     console.log(completion.choices[0].message.content);
-    response = JSON.stringify(completion.choices[0].message.content);
+    basicResponse = JSON.stringify(completion.choices[0].message.content);
   
   }
     
@@ -55,10 +55,7 @@ export function BasicQuestionsPage():  JSX.Element {
 return (
         <div className="BasicPage">
             <h1>Career Quiz Basic Questions</h1>
-            <h3>
-                In order for us to estimate your personal Interests and Usual Style, you will first need to answer a series of questions. 
-                Read each pair of phrases below and decide which one of the two most describes you, then select the radio button next to that phrase.
-            </h3>
+            <progress className="Progress-Bar" value={numAnswered} max={7}></progress>
             
             <p>Question 1: What kind of workplace environment interests you? </p>
             <Form>
@@ -318,7 +315,7 @@ return (
             
            <div> {answers[0] && answers[1] && answers[2] && answers[3] && answers[4] && answers[5] && answers[6] && <div>
         <Button onClick={showMyResults}>Submit!</Button>
-    <span></span><h2>Congrats you completed the quiz!</h2></div>} </div>
+   </div>} </div>
 
         
         </div>
