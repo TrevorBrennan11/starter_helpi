@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import '../App.css';
 import OpenAI from "openai";
-import { Button, Col, Form } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 
 export let basicResponse = "";
 const openai = new OpenAI({apiKey: JSON.parse(localStorage.getItem("MYKEY") as string), dangerouslyAllowBrowser: true});
+export let isBasicDone = false;
 
 
 
@@ -48,6 +49,7 @@ export function BasicQuestionsPage():  JSX.Element {
   
     console.log(completion.choices[0].message.content);
     basicResponse = JSON.stringify(completion.choices[0].message.content);
+    isBasicDone = true;
   
   }
     
