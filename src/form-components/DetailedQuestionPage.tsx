@@ -19,6 +19,7 @@ export function DetailedQuestionsPage(): JSX.Element {
       updateNumAnswered(updatedAnswers);
       return updatedAnswers;
     });
+    console.log(answers);
   }
 
   function updateNumAnswered(updatedAnswers: string[]) {

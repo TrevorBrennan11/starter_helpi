@@ -44,17 +44,17 @@ function App() {
   }
 
   function updateHomePageButton() {
-  setIsHomePage(true);
-  setIsBasicPage(false);
-  setIsDetailedPage(false);
-  setIsResultsPage(false);
+    setIsHomePage(true);
+    setIsBasicPage(false);
+    setIsDetailedPage(false);
+    setIsResultsPage(false);
   }
 
   function updateDetailedPageButton() {
-  setIsDetailedPage(true);
-  setIsBasicPage(false);
-  setIsHomePage(false);
-  setIsResultsPage(false);
+    setIsDetailedPage(true);
+    setIsBasicPage(false);
+    setIsHomePage(false);
+    setIsResultsPage(false);
   }
   
   async function updateResultsPageButton() {
@@ -62,42 +62,42 @@ function App() {
     setIsDetailedPage(false);
     setIsBasicPage(false);
     setIsHomePage(false);
-    }
+  }
 
   return (
     <div className="App">
       {/*Header will contain navigation bar*/}
-  <div className="App-NavBar">
-  <Container fluid>
-    <Col as={Button} onClick={updateHomePageButton}>Home</Col>
-    <span></span>
-    <Col as={Button} onClick={updateBasicPageButton}>Basic</Col>
-    <span></span>
-    <Col as={Button} onClick={updateDetailedPageButton}>Detailed</Col>
-    <Col as={Button} onClick={updateResultsPageButton}>Results</Col>
-  </Container>
-</div>
-<div className='App-Body'>
-  {/*Home Page*/}
-  {isHomePage && <HomePage></HomePage>}
-  {/*Basic Questions Page*/}
-  {isBasicPage && <BasicQuestionsPage></BasicQuestionsPage>}
-  {/*Detailed Questions Page*/}
-  {isDetailedPage && <DetailedQuestionsPage></DetailedQuestionsPage>}
-  {isResultsPage && <ResultsPage/>}
-  {/*Footer contains entry for the API key*/}
-<footer className='App-footer'>
-<Form>
-  <Form.Label>API Key:</Form.Label>
-  <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
-  <br></br>
-  <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
-</Form>
-</footer> 
-</div>
-</div>
-
-);  
+      <div className="App-NavBar">
+        <Container fluid>
+          <Col className = "Header-Button" as={Button} onClick={updateHomePageButton}>Home</Col>
+          <span></span>
+          <Col className = "Header-Button" as={Button} onClick={updateBasicPageButton}>Basic</Col>
+          <span></span>
+          <Col className = "Header-Button" as={Button} onClick={updateDetailedPageButton}>Detailed</Col>
+          <Col className = "Header-Button" as={Button} onClick={updateResultsPageButton}>Results</Col>
+        </Container>
+      </div>
+        <div className='App-Body'>
+        {/*Home Page*/}
+        {isHomePage && <HomePage></HomePage>}
+        {/*Basic Questions Page*/}
+        {isBasicPage && <BasicQuestionsPage ></BasicQuestionsPage>}
+        {/*Detailed Questions Page*/}
+        {isDetailedPage && <DetailedQuestionsPage></DetailedQuestionsPage>}
+        {isResultsPage && <ResultsPage></ResultsPage>}
+        {/*Footer contains entry for the API key*/}
+      </div>
+      <footer className='App-footer'>
+        <Form>
+          <Form.Label>API Key:</Form.Label>
+          <div style={{display: 'flex', flexDirection: 'row'}}>
+            <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
+            <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
+          </div>
+        </Form>
+      </footer> 
+    </div>
+  );  
 }
 
 export default App;
