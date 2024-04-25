@@ -3,6 +3,7 @@ import '../App.css';
 import OpenAI from "openai";
 import { Button, Form } from "react-bootstrap";
 
+
 export let basicResponse = "";
 const openai = new OpenAI({apiKey: JSON.parse(localStorage.getItem("MYKEY") as string), dangerouslyAllowBrowser: true});
 export let isBasicDone = false;

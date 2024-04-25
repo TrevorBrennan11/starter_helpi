@@ -1,6 +1,7 @@
 
 import OpenAI from "openai";
 import { useState } from "react";
+import React from "react";
 import { Button, Col, Form } from "react-bootstrap";
 
 export let detailedResponse = "";

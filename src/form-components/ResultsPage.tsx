@@ -1,6 +1,7 @@
 import '../App.css';
 import {detailedResponse} from "./DetailedQuestionPage"
 import { basicResponse } from './BasicQuestionPage';
+import React from "react";
 
 
 export function ResultsPage(): JSX.Element {
