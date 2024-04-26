@@ -319,6 +319,7 @@ return (
                 />
                 
             </Form>
+            <progress className="Progress-Bar" value={numAnswered} max={7}></progress>
             
            
             
