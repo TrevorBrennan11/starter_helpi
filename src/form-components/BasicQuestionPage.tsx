@@ -299,11 +299,9 @@ export function BasicQuestionsPage():  JSX.Element {
                 />
             </Form>
             <progress className="Progress-Bar" value={numAnswered} max={7}></progress>
-            <div> 
-                {answers[0] && answers[1] && answers[2] && answers[3] && answers[4] && answers[5] && answers[6] && <div>
-                    <Button onClick={showMyResults}>Submit!</Button>
-                </div>}
-            </div>
+            {answers[0] && answers[1] && answers[2] && answers[3] && answers[4] && answers[5] && answers[6] && <div>
+                <Button onClick={showMyResults}>Submit!</Button>
+            </div>}
         </div>
     );
 }
