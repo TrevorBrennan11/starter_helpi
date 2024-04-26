@@ -53,7 +53,7 @@ export function BasicQuestionsPage():  JSX.Element {
         <div className="BasicPage">
             <h1>Career Quiz Basic Questions</h1>
             <progress className="Progress-Bar" value={numAnswered} max={7}></progress>
-            <p>Question 1: What kind of workplace environment interests you? </p>
+            <h3>Question 1: What kind of workplace environment interests you? </h3>
             <Form>
                 <Form.Check
                     type="radio"
@@ -88,7 +88,7 @@ export function BasicQuestionsPage():  JSX.Element {
                     value="Working in a classroom"
                 />
             </Form>
-            <p>Question 2: What social cause do you care about the most? </p>
+            <h3>Question 2: What social cause do you care about the most? </h3>
             <Form>
                 <Form.Check
                     type="radio"
@@ -123,7 +123,7 @@ export function BasicQuestionsPage():  JSX.Element {
                     value="Public health and wellness"
                 />
             </Form>
-            <p>Question 3:Congrats you have the day off! How will you spend your spare time?</p>
+            <h3>Question 3:Congrats you have the day off! How will you spend your spare time?</h3>
             <Form>
                 <Form.Check
                     type="radio"
@@ -158,7 +158,7 @@ export function BasicQuestionsPage():  JSX.Element {
                     value="Relaxing and recharging at home"
                 />
             </Form>
-            <p>Question 4: What’s your preferred work style?</p>
+            <h3>Question 4: What’s your preferred work style?</h3>
             <Form>
                 <Form.Check
                     type="radio"
@@ -193,7 +193,7 @@ export function BasicQuestionsPage():  JSX.Element {
                     value="I enjoy working independently"
                 />
             </Form>
-            <p>Question 5: Which of the following environments do you thrive in? </p>
+            <h3>Question 5: Which of the following environments do you thrive in? </h3>
             <Form>
                 <Form.Check
                     type="radio"
@@ -228,7 +228,7 @@ export function BasicQuestionsPage():  JSX.Element {
                     value="Active and practical environments where you can work with tools or equipment"
                 />
             </Form>
-            <p>Question 6: Which of the following best describes your preferred work style? </p>
+            <h3>Question 6: Which of the following best describes your preferred work style? </h3>
             <Form>
                 <Form.Check
                     type="radio"
@@ -263,7 +263,7 @@ export function BasicQuestionsPage():  JSX.Element {
                     value="Practical and hands-on"
                 />
             </Form>
-            <p>Question 7: What kind of tasks do you enjoy doing in your free time?</p>
+            <h3>Question 7: What kind of tasks do you enjoy doing in your free time?</h3>
             <Form>
                 <Form.Check
                     type="radio"
