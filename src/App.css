@@ -67,6 +67,10 @@
   align-items: center;
 }
 
+.answers {
+  text-align: left;
+}
+
 .container{
   margin: auto;
   background-color: darkblue;
