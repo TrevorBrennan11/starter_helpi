@@ -53,7 +53,6 @@ export function BasicQuestionsPage():  JSX.Element {
         <div className="BasicPage">
             <h1>Career Quiz Basic Questions</h1>
             <progress className="Progress-Bar" value={numAnswered} max={7}></progress>
-            
                 <h3>Question 1: What kind of workplace environment interests you? </h3>
                 <Form className="answers">
                     <Form.Check
