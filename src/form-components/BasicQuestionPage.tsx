@@ -1,66 +1,58 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import '../App.css';
 import OpenAI from "openai";
 import { Button, Form } from "react-bootstrap";
 
-export let basicResponse = "";
+export let basicResponse = ""; 
+
 const openai = new OpenAI({apiKey: JSON.parse(localStorage.getItem("MYKEY") as string), dangerouslyAllowBrowser: true});
+
 export let isBasicDone = false;
 
-
-
 export function BasicQuestionsPage():  JSX.Element {
+    const [answers, setAnswers] = useState<string[]>(["", "", "", "", "", "", ""]);
+    const [numAnswered, setNumAnswered] = useState<number>(0);
 
+    function updateNumAnswered(updatedAnswers: string[]) {
+        let totalAnswered = updatedAnswers.filter(answer => !!answer).length;
+        setNumAnswered(totalAnswered);
+    }
+
+    function updateAnswer(index: number, input: string) {
+        setAnswers(prevAnswers => {
+            const updatedAnswers = [...prevAnswers];
+            updatedAnswers[index] = input;
+            updateNumAnswered(updatedAnswers);
+            console.log(answers);
+            return updatedAnswers;
+        });
+    }
+
+    //change this functiond de=dprifnreijbfieriuerrjenfjr f
+    async function showMyResults() {
+        const completion = await openai.chat.completions.create({
+            messages: [
+                {"role": "system", "content": "You are a career-starter assistant, skilled in recommending three jobs starting with the most compatabile."},
+                {"role": "user", "content": "When asked 'What kind of workplace environment interests you?' they responded" + answers[0]},
+                {"role": "user", "content": "When asked 'What social cause do you care about the most?' they responded" + answers[1]},
+                {"role": "user", "content": "When asked 'Congrats you have the day off! How will you spend your spare time?' they responded" + answers[2]},
+                {"role": "user", "content": "When asked 'What’s your preferred work style?' they responded" + answers[3]},
+                {"role": "user", "content": "When asked 'Which of the following environments do you thrive in?' they responded" + answers[4]},
+                {"role": "user", "content": "When asked 'Which of the following best describes your preferred work style?' they responded" + answers[5]},
+                {"role": "user", "content": "When asked 'What kind of tasks do you enjoy doing in your free time?' they responded" + answers[6]},
+            ],
+            model: "gpt-4-turbo",
+        });
+        console.log(completion.choices[0].message.content);
+        basicResponse = JSON.stringify(completion.choices[0].message.content);
+        isBasicDone = true;
+        console.log(isBasicDone);
+    }
     
-  const [answers, setAnswers] = useState<string[]>(["", "", "", "", "", "", ""]);
-  const [numAnswered, setNumAnswered] = useState<number>(0);
-  
-
-
-  function updateNumAnswered(updatedAnswers: string[]) {
-    let totalAnswered = updatedAnswers.filter(answer => !!answer).length;
-    setNumAnswered(totalAnswered);
-  }
-
-  function updateAnswer(index: number, input: string) {
-    setAnswers(prevAnswers => {
-      const updatedAnswers = [...prevAnswers];
-      updatedAnswers[index] = input;
-      updateNumAnswered(updatedAnswers);
-      console.log(answers);
-      return updatedAnswers;
-    });
-
-  }
-
-  //change this functiond de=dprifnreijbfieriuerrjenfjr f
-
-  async function showMyResults() {
-    const completion = await openai.chat.completions.create({
-      messages: [{"role": "system", "content": "You are a career-starter assistant, skilled in recommending three jobs starting with the most compatabile."},
-          {"role": "user", "content": "When asked 'What kind of workplace environment interests you?' they responded" + answers[0]},
-          {"role": "user", "content": "When asked 'What social cause do you care about the most?' they responded" + answers[1]},
-          {"role": "user", "content": "When asked 'Congrats you have the day off! How will you spend your spare time?' they responded" + answers[2]},
-          {"role": "user", "content": "When asked 'What’s your preferred work style?' they responded" + answers[3]},
-          {"role": "user", "content": "When asked 'Which of the following environments do you thrive in?' they responded" + answers[4]},
-          {"role": "user", "content": "When asked 'Which of the following best describes your preferred work style?' they responded" + answers[5]},
-          {"role": "user", "content": "When asked 'What kind of tasks do you enjoy doing in your free time?' they responded" + answers[6]},],
-      model: "gpt-4-turbo",
-    });
-  
-    console.log(completion.choices[0].message.content);
-    basicResponse = JSON.stringify(completion.choices[0].message.content);
-    isBasicDone = true;
-    console.log(isBasicDone);
-  
-  }
-    
-   
-return (
+    return (
         <div className="BasicPage">
             <h1>Career Quiz Basic Questions</h1>
             <progress className="Progress-Bar" value={numAnswered} max={7}></progress>
-            
             <p>Question 1: What kind of workplace environment interests you? </p>
             <Form>
                 <Form.Check
@@ -95,7 +87,6 @@ return (
                     label="Working in a classroom"
                     value="Working in a classroom"
                 />
-                
             </Form>
             <p>Question 2: What social cause do you care about the most? </p>
             <Form>
@@ -106,7 +97,6 @@ return (
                     id="Career-Question2"
                     label="Environmental sustainability"
                     value="Environmental sustainability"
-                    
                 />
                 <Form.Check
                     type="radio"
@@ -132,7 +122,6 @@ return (
                     label="Public health and wellness"
                     value="Public health and wellness"
                 />
-                
             </Form>
             <p>Question 3:Congrats you have the day off! How will you spend your spare time?</p>
             <Form>
@@ -168,7 +157,6 @@ return (
                     label="Relaxing and recharging at home"
                     value="Relaxing and recharging at home"
                 />
-                
             </Form>
             <p>Question 4: What’s your preferred work style?</p>
             <Form>
@@ -204,7 +192,6 @@ return (
                     label="I enjoy working independently"
                     value="I enjoy working independently"
                 />
-                
             </Form>
             <p>Question 5: Which of the following environments do you thrive in? </p>
             <Form>
@@ -240,7 +227,6 @@ return (
                     label="Active and practical environments where you can work with tools or equipment"
                     value="Active and practical environments where you can work with tools or equipment"
                 />
-                
             </Form>
             <p>Question 6: Which of the following best describes your preferred work style? </p>
             <Form>
@@ -276,7 +262,6 @@ return (
                     label="Practical and hands-on"
                     value="Practical and hands-on"
                 />
-                
             </Form>
             <p>Question 7: What kind of tasks do you enjoy doing in your free time?</p>
             <Form>
@@ -312,15 +297,11 @@ return (
                     label="Building or fixing things around the house"
                     value="Building or fixing things around the house"
                 />
-                
             </Form>
-            
-           
-            
-           <div> {answers[0] && answers[1] && answers[2] && answers[3] && answers[4] && answers[5] && answers[6] && <div>
-        <Button onClick={showMyResults}>Submit!</Button>
-   </div>} </div>
-
+            <progress className="Progress-Bar" value={numAnswered} max={7}></progress>
+            {answers[0] && answers[1] && answers[2] && answers[3] && answers[4] && answers[5] && answers[6] && <div>
+                <Button onClick={showMyResults}>Submit!</Button>
+            </div>}
         </div>
     );
 }
