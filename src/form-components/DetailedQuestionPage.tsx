@@ -3,7 +3,7 @@ import OpenAI from "openai";
 import { useState } from "react";
 import { Button, Col, Form } from "react-bootstrap";
 import { ResultsPage } from "./ResultsPage";
-import { basicResponse } from "./BasicQuestionPage";
+//import { basicResponse } from "./BasicQuestionPage";
 //import { ResultsPage } from './form-components/ResultsPage';
 
 export let detailedResponse = "";
