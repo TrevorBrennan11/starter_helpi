@@ -2,11 +2,16 @@
 import OpenAI from "openai";
 import { useState } from "react";
 import { Button, Col, Form } from "react-bootstrap";
+import { ResultsPage } from "./ResultsPage";
+import { basicResponse } from "./BasicQuestionPage";
+//import { ResultsPage } from './form-components/ResultsPage';
 
 export let detailedResponse = "";
 const openai = new OpenAI({apiKey: JSON.parse(localStorage.getItem("MYKEY") as string), dangerouslyAllowBrowser: true});
 
 export function DetailedQuestionsPage(): JSX.Element {
+  const[detailedResponse,setDetailedRespone] = useState<string>("");
+  const[isResultsPage,setIsResultsPage] = useState<boolean>(false);
 
   const [answers, setAnswers] = useState<string[]>(["", "", "", "", "", "", ""]);
 
@@ -27,6 +32,7 @@ export function DetailedQuestionsPage(): JSX.Element {
     setNumAnswered(totalAnswered);
   }
   async function showMyResults() {
+  setIsResultsPage(true);
   const completion = await openai.chat.completions.create({
     messages: [{"role": "system", "content": "You are a career counselor who is giving me a list of careers that will suit me."},
         {"role": "user", "content": "When asked 'How inclined are you to take leadership roles when working in groups?' they responded" + answers[0]},
@@ -40,9 +46,14 @@ export function DetailedQuestionsPage(): JSX.Element {
   });
 
   console.log(completion.choices[0].message.content);
-  detailedResponse = JSON.stringify(completion.choices[0].message.content);
-
+  setDetailedRespone(JSON.stringify(completion.choices[0].message.content));
 }
+if (isResultsPage){
+  return(
+    <ResultsPage detailedResponse={detailedResponse}></ResultsPage>
+  )
+}
+else{
   return ( 
     <div className="DetailedPage">
       <h1>Career Quiz Detailed Questions</h1>
@@ -69,9 +80,6 @@ export function DetailedQuestionsPage(): JSX.Element {
           onChange={(e) => updateAnswer(2, e.target.value)}/>
       </Form.Group>
       <p>Question 4: What part of classes do you excel the most in (group work, exams, projects, etc)</p>
-      {answers[0] && answers[1] && answers[2] && answers[3] && answers[4] && answers[5] && answers[6] && <div>
-        <Col as={Button} onClick={showMyResults}>Home</Col>
-    <span></span><h2>Congrats you completed the quiz!</h2></div>}
       <Form.Group controlId="Answer 4">
         <Form.Control
           placeholder="Answer here"
@@ -98,7 +106,11 @@ export function DetailedQuestionsPage(): JSX.Element {
           placeholder="Answer here"
           value={answers[6]}
           onChange={(e) => updateAnswer(6, e.target.value)}/>
-      </Form.Group>
+      </Form.Group> 
+      {answers[0] && answers[1] && answers[2] && answers[3] && answers[4] && answers[5] && answers[6] && <div>
+        <Col as={Button} onClick={showMyResults}>Get Results</Col>
+    <span></span><h2>Congrats you completed the quiz!</h2></div>}
     </div>
   );
+      }
 }
