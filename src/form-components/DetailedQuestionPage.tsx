@@ -101,8 +101,8 @@ export function DetailedQuestionsPage(): JSX.Element {
             value={answers[6]}
             onChange={(e) => updateAnswer(6, e.target.value)}/>
         {answers[0] && answers[1] && answers[2] && answers[3] && answers[4] && answers[5] && answers[6] && <div>
-          <Col as={Button} onClick={showMyResults}>Get Results</Col>
-          <span></span><h2>Congrats you completed the quiz!</h2>
+          <h2>Congrats you completed the quiz!</h2>
+          <Button onClick={showMyResults}>Get Results</Button>
         </div>}
       </div>
     );
