@@ -4,28 +4,28 @@ import '../App.css';
 import { basicResponse } from './BasicQuestionPage';
 import { DetailedQuestionsPage } from "./DetailedQuestionPage";
 import { Button, Col } from 'react-bootstrap';
+import Spinner from 'react-bootstrap/Spinner';
 
-
-export function ResultsPage({detailedResponse}: {
-  detailedResponse: string;
-}): JSX.Element {
+export function ResultsPage({detailedResponse}: {detailedResponse: string;}): JSX.Element {
   const [isDetailedPage,setIsDetailedPage] = useState<boolean>(false);
-  function retakeQuiz(){
+
+  function retakeQuiz() {
     setIsDetailedPage(true);
   }
+
   if (isDetailedPage){
     return(
       <DetailedQuestionsPage></DetailedQuestionsPage>
     )
-  }
-  else{
+  } else{
     return ( 
-    <div className="App-detailed">
-    <h2>Loading your results! </h2>
-    <p>{detailedResponse}</p>
-    <p>{basicResponse}</p>
-    <Col className = "Header-Button" as={Button} onClick={retakeQuiz}>Retake Quiz!</Col>
-    </div>
-  );
-    }
+      <div className="App-detailed">
+      <h2>Loading your results!</h2>
+      <Spinner></Spinner>
+      <p>{detailedResponse}</p>
+      <p>{basicResponse}</p>
+      <Col className = "Header-Button" as={Button} onClick={retakeQuiz}>Retake Quiz!</Col>
+      </div>
+    );
+  }
 }
