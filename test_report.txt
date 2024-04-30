@@ -122,25 +122,6 @@ FAIL src/App.test.tsx
       at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
----------------------------|---------|----------|---------|---------|-------------------
-File                       | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
----------------------------|---------|----------|---------|---------|-------------------
-All files                  |   13.49 |    17.64 |    3.38 |    13.7 |                   
- src                       |   24.39 |    42.85 |   11.11 |   24.39 |                   
-  App.tsx                  |   33.33 |       60 |   14.28 |   33.33 | 15,30-64          
-  index.tsx                |       0 |      100 |     100 |       0 | 7-19              
-  reportWebVitals.ts       |       0 |        0 |       0 |       0 | 3-10              
- src/form-components       |    8.23 |        0 |       2 |    8.43 |                   
-  BasicQuestionPage.tsx    |    6.25 |        0 |       0 |    6.38 | 13-295            
-  DetailedQuestionPage.tsx |    9.67 |        0 |       0 |      10 | 15-105            
-  HomePage.tsx             |     100 |      100 |     100 |     100 |                   
-  ResultsPage.tsx          |       0 |        0 |       0 |       0 | 10-21             
----------------------------|---------|----------|---------|---------|-------------------
-Test Suites: 1 failed, 1 total
-Tests:       1 failed, 1 total
-Snapshots:   0 total
-Time:        3.008 s
-Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
 declaring it in its dependencies. This is currently working because
@@ -153,3 +134,22 @@ ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
 your devDependencies to work around this error. This will make this message
 go away.[0m
   
+---------------------------|---------|----------|---------|---------|-------------------
+File                       | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+---------------------------|---------|----------|---------|---------|-------------------
+All files                  |    12.9 |    17.64 |    3.38 |   13.11 |                   
+ src                       |   24.39 |    42.85 |   11.11 |   24.39 |                   
+  App.tsx                  |   33.33 |       60 |   14.28 |   33.33 | 15,30-64          
+  index.tsx                |       0 |      100 |     100 |       0 | 7-19              
+  reportWebVitals.ts       |       0 |        0 |       0 |       0 | 3-10              
+ src/form-components       |    7.22 |        0 |       2 |     7.4 |                   
+  BasicQuestionPage.tsx    |    6.25 |        0 |       0 |    6.38 | 13-295            
+  DetailedQuestionPage.tsx |    6.89 |        0 |       0 |    7.14 | 14-103            
+  HomePage.tsx             |     100 |      100 |     100 |     100 |                   
+  ResultsPage.tsx          |       0 |        0 |       0 |       0 | 10-21             
+---------------------------|---------|----------|---------|---------|-------------------
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 total
+Snapshots:   0 total
+Time:        3.312 s
+Ran all test suites.
