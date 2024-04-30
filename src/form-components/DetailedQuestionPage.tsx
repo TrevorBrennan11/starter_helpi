@@ -7,7 +7,6 @@ import { ResultsPage } from "./ResultsPage";
 //import { ResultsPage } from './form-components/ResultsPage';
 
 export let detailedResponse = "";
-export let responseLoaded = false;
 
 const openai = new OpenAI({apiKey: JSON.parse(localStorage.getItem("MYKEY") as string), dangerouslyAllowBrowser: true});
 
@@ -48,7 +47,6 @@ export function DetailedQuestionsPage(): JSX.Element {
       model: "gpt-4-turbo",
     });
     console.log(completion.choices[0].message.content);
-    responseLoaded = true;
     setDetailedRespone(JSON.stringify(completion.choices[0].message.content));
   }
 
@@ -59,7 +57,7 @@ export function DetailedQuestionsPage(): JSX.Element {
   } else {
     return ( 
       <div className="DetailedPage">
-        <h1>Career Quiz Detailed Questions</h1>
+        <h1 style={{paddingTop: "30px"}}>Career Quiz Detailed Questions</h1>
         <progress className="Progress-Bar" value={numAnswered} max={7}></progress>
         <h3>Question 1: How inclined are you to take leadership roles when working in groups?</h3> 
         <textarea 
