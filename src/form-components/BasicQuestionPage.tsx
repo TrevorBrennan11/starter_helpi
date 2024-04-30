@@ -51,7 +51,7 @@ export function BasicQuestionsPage():  JSX.Element {
     
     return (
         <div className="BasicPage">
-            <h1>Career Quiz Basic Questions</h1>
+            <h1 style={{paddingTop: "30px"}}>Career Quiz Basic Questions</h1>
             <progress className="Progress-Bar" value={numAnswered} max={7}></progress>
                 <h3>Question 1: What kind of workplace environment interests you? </h3>
                 <Form className="answers">
@@ -123,7 +123,7 @@ export function BasicQuestionsPage():  JSX.Element {
                         value="Public health and wellness"
                     />
                 </Form>
-                <h3>Question 3:Congrats you have the day off! How will you spend your spare time?</h3>
+                <h3>Question 3: Congrats you have the day off! How will you spend your spare time?</h3>
                 <Form className="answers">
                     <Form.Check
                         type="radio"
@@ -298,7 +298,6 @@ export function BasicQuestionsPage():  JSX.Element {
                         value="Building or fixing things around the house"
                     />
                 </Form>
-            <progress className="Progress-Bar" value={numAnswered} max={7}></progress>
             {answers[0] && answers[1] && answers[2] && answers[3] && answers[4] && answers[5] && answers[6] && <div>
                 <Button onClick={showMyResults}>Submit!</Button>
             </div>}
