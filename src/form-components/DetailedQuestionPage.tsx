@@ -7,6 +7,8 @@ import { ResultsPage } from "./ResultsPage";
 //import { ResultsPage } from './form-components/ResultsPage';
 
 export let detailedResponse = "";
+export let responseLoaded = false;
+
 const openai = new OpenAI({apiKey: JSON.parse(localStorage.getItem("MYKEY") as string), dangerouslyAllowBrowser: true});
 
 export function DetailedQuestionsPage(): JSX.Element {
@@ -46,6 +48,7 @@ export function DetailedQuestionsPage(): JSX.Element {
       model: "gpt-4-turbo",
     });
     console.log(completion.choices[0].message.content);
+    responseLoaded = true;
     setDetailedRespone(JSON.stringify(completion.choices[0].message.content));
   }
 

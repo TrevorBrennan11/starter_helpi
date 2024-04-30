@@ -8,9 +8,11 @@ import Spinner from 'react-bootstrap/Spinner';
 
 export function ResultsPage({detailedResponse}: {detailedResponse: string;}): JSX.Element {
   const [isDetailedPage,setIsDetailedPage] = useState<boolean>(false);
-  function retakeQuiz(){
+
+  function retakeQuiz() {
     setIsDetailedPage(true);
   }
+
   if (isDetailedPage){
     return(
       <DetailedQuestionsPage></DetailedQuestionsPage>
@@ -18,7 +20,7 @@ export function ResultsPage({detailedResponse}: {detailedResponse: string;}): JS
   } else{
     return ( 
       <div className="App-detailed">
-      <h2>Loading your results! </h2>
+      <h2>Loading your results!</h2>
       <Spinner></Spinner>
       <p>{detailedResponse}</p>
       <p>{basicResponse}</p>
