@@ -123,7 +123,7 @@ export function BasicQuestionsPage():  JSX.Element {
                         value="Public health and wellness"
                     />
                 </Form>
-                <h3>Question 3:Congrats you have the day off! How will you spend your spare time?</h3>
+                <h3>Question 3: Congrats you have the day off! How will you spend your spare time?</h3>
                 <Form className="answers">
                     <Form.Check
                         type="radio"
