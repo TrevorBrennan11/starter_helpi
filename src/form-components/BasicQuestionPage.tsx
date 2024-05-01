@@ -47,14 +47,18 @@ export function BasicQuestionsPage():  JSX.Element {
           {"role": "user", "content": "When asked 'Which of the following best describes your preferred work style?' they responded" + answers[5]},
           {"role": "user", "content": "When asked 'What kind of tasks do you enjoy doing in your free time?' they responded" + answers[6]},],
       model: "gpt-4-turbo",
+     
     });
   
     console.log(completion.choices[0].message.content);
-    basicResponse = JSON.stringify(completion.choices[0].message.content);
+    basicResponse = completion.choices[0].message.content || '';
+    //basicResponse.split("\n");
     isBasicDone = true;
-    console.log(isBasicDone);
+    console.log(basicResponse);
   
   }
+
+
     
    
 return (

@@ -41,7 +41,7 @@ export function DetailedQuestionsPage(): JSX.Element {
   });
 
   console.log(completion.choices[0].message.content);
-  detailedResponse = JSON.stringify(completion.choices[0].message.content);
+  detailedResponse = completion.choices[0].message.content || '';
 
 }
   return ( 
