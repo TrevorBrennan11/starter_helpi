@@ -3,10 +3,12 @@ import { useState } from "react";
 import { Button } from "react-bootstrap";
 import { ResultsPage } from "./ResultsPage";
 
+
 export let detailedResponse = "";
 const openai = new OpenAI({apiKey: JSON.parse(localStorage.getItem("MYKEY") as string), dangerouslyAllowBrowser: true});
 
-export function DetailedQuestionsPage(): JSX.Element {
+export function DetailedQuestionsPage({responseMode}: 
+  {responseMode: string}): JSX.Element {
   const[detailedResponse,setDetailedResponse] = useState<string>("");
   const[isResultsPage,setIsResultsPage] = useState<boolean>(false);
   const [answers, setAnswers] = useState<string[]>(["", "", "", "", "", "", ""]);
@@ -30,7 +32,7 @@ export function DetailedQuestionsPage(): JSX.Element {
   async function showMyResults() {
     setIsResultsPage(true);
     const completion = await openai.chat.completions.create({
-      messages: [{"role": "system", "content": "You are a career counselor who is providing the user with a list of recommended careers based on a personality quiz. Only provide a list of three reccommended careers and why they would be a good fit."},
+      messages: [{"role": "system", "content": "You are a"  + responseMode  + "who is giving me a list of careers that will suit me."},
           {"role": "user", "content": "When asked 'How inclined are you to take leadership roles when working in groups?' they responded" + answers[0]},
           {"role": "user", "content": "When asked 'What physical environment do you prefer to be in, beyond just working?' they responded" + answers[1]},
           {"role": "user", "content": "When asked 'If you could do anything, without needing to worry about money, what would be and why?' they responded" + answers[2]},
@@ -47,7 +49,7 @@ export function DetailedQuestionsPage(): JSX.Element {
 
   if (isResultsPage){
     return(
-      <ResultsPage Response={detailedResponse} Page="detailed"></ResultsPage>
+      <ResultsPage Response={detailedResponse} Page="detailed" responseMode={responseMode}></ResultsPage>
     )
   } else {
     return ( 
