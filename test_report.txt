@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (45 ms)
+  ✕ renders learn react link (50 ms)
 
   ● renders learn react link
 
@@ -36,6 +36,33 @@ FAIL src/App.test.tsx
             [36m>[39m
               [0mDetailed[0m
             [36m</button>[39m
+            [36m<div>[39m
+              [36m<select[39m
+                [33mclass[39m=[32m"form-select"[39m
+                [33mid[39m=[32m"userMode"[39m
+              [36m>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"Career Counselor"[39m
+                [36m>[39m
+                  [0mCareer Counselor Mode[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"Pirate with a very thick pirate accent, who is also a career counselor"[39m
+                [36m>[39m
+                  [0mPirate Mode[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"Alien who is very sarcastic and looks down on humans , who is also a career counselor"[39m
+                [36m>[39m
+                  [0mAlien Mode[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"King from medieval who can't help but talk about food and money, who is also a career counselor"[39m
+                [36m>[39m
+                  [0mMedieval King Mode[0m
+                [36m</option>[39m
+              [36m</select>[39m
+            [36m</div>[39m
           [36m</div>[39m
           [36m<div[39m
             [33mclass[39m=[32m"App-Body"[39m
@@ -114,21 +141,21 @@ FAIL src/App.test.tsx
 ---------------------------|---------|----------|---------|---------|-------------------
 File                       | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ---------------------------|---------|----------|---------|---------|-------------------
-All files                  |   11.38 |    11.36 |    3.33 |   11.57 |                   
- src                       |   27.27 |    41.66 |    12.5 |   27.27 |                   
-  App.tsx                  |    40.9 |     62.5 |   16.66 |    40.9 | 13,24-48          
+All files                  |      12 |    11.36 |    3.27 |   12.19 |                   
+ src                       |   28.57 |    41.66 |   11.11 |   28.57 |                   
+  App.tsx                  |   41.66 |     62.5 |   14.28 |   41.66 | 14,25-52          
   index.tsx                |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts       |       0 |        0 |       0 |       0 | 3-10              
  src/form-components       |    5.55 |        0 |    1.92 |    5.68 |                   
   BasicQuestionPage.tsx    |    4.08 |        0 |       0 |    4.16 | 11-299            
-  DetailedQuestionPage.tsx |    7.14 |        0 |       0 |     7.4 | 10-98             
+  DetailedQuestionPage.tsx |    7.14 |        0 |       0 |     7.4 | 12-100            
   HomePage.tsx             |     100 |      100 |     100 |     100 |                   
   ResultsPage.tsx          |       0 |        0 |       0 |       0 | 9-38              
 ---------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.108 s
+Time:        3.194 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
