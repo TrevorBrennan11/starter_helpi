@@ -6,7 +6,6 @@ import { ResultsPage } from "./ResultsPage";
 
 
 export let basicResponse = "";
-export let isBasicDone = false;
 const openai = new OpenAI({apiKey: JSON.parse(localStorage.getItem("MYKEY") as string), dangerouslyAllowBrowser: true});
 
 
@@ -56,7 +55,6 @@ export function BasicQuestionsPage():  JSX.Element {
     });
   
     console.log(completion.choices[0].message.content);
-    isBasicDone = true;
     setBasicResponse(completion.choices[0].message.content || '');
   
   }
