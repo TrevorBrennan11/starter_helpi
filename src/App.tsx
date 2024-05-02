@@ -74,7 +74,7 @@ function App() {
           <Col className = "Header-Button" as={Button} onClick={updateBasicPageButton}>Basic</Col>
           <span></span>
           <Col className = "Header-Button" as={Button} onClick={updateDetailedPageButton}>Detailed</Col>
-          <Col className = "Header-Button" as={Button} onClick={updateResultsPageButton}>Results</Col>
+          
         </Container>
       </div>
         <div className='App-Body'>
@@ -84,7 +84,9 @@ function App() {
         {isBasicPage && <BasicQuestionsPage ></BasicQuestionsPage>}
         {/*Detailed Questions Page*/}
         {isDetailedPage && <DetailedQuestionsPage></DetailedQuestionsPage>}
-        {isResultsPage && <ResultsPage detailedResponse={''}></ResultsPage>}
+
+        {isResultsPage && <ResultsPage Response='' Page='S'></ResultsPage>}
+
         {/*Footer contains entry for the API key*/}
       </div>
       <footer className='App-footer'>

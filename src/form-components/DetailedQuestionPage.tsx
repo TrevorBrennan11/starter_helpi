@@ -1,17 +1,22 @@
 
 import OpenAI from "openai";
 import { useState } from "react";
-import { Button } from "react-bootstrap";
+
+
+import React from "react";
+import { Button, Col, Form } from "react-bootstrap";
 import { ResultsPage } from "./ResultsPage";
-//import { basicResponse } from "./BasicQuestionPage";
-//import { ResultsPage } from './form-components/ResultsPage';
 
 export let detailedResponse = "";
+export let isDetailedDone = false;
+
 
 const openai = new OpenAI({apiKey: JSON.parse(localStorage.getItem("MYKEY") as string), dangerouslyAllowBrowser: true});
 
 export function DetailedQuestionsPage(): JSX.Element {
-  const[detailedResponse,setDetailedRespone] = useState<string>("");
+
+  const[detailedResponse,setDetailedResponse] = useState<string>("");
+
   const[isResultsPage,setIsResultsPage] = useState<boolean>(false);
 
   const [answers, setAnswers] = useState<string[]>(["", "", "", "", "", "", ""]);
@@ -33,6 +38,8 @@ export function DetailedQuestionsPage(): JSX.Element {
     setNumAnswered(totalAnswered);
   }
 
+
+
   async function showMyResults() {
     setIsResultsPage(true);
     const completion = await openai.chat.completions.create({
@@ -45,14 +52,18 @@ export function DetailedQuestionsPage(): JSX.Element {
           {"role": "user", "content": "When asked 'What is a work environment you did not work well in at all, and would not like to return to?' they responded" + answers[5]},
           {"role": "user", "content": "When asked 'What aspect of working are you most looking forward to in the future?' they responded" + answers[6]},],
       model: "gpt-4-turbo",
+      temperature: 0.75,
     });
     console.log(completion.choices[0].message.content);
-    setDetailedRespone(JSON.stringify(completion.choices[0].message.content));
+    isDetailedDone = true;
+    setDetailedResponse(completion.choices[0].message.content || '');
   }
+
 
   if (isResultsPage){
     return(
-      <ResultsPage detailedResponse={detailedResponse}></ResultsPage>
+      <ResultsPage Response={detailedResponse} Page="detailed"></ResultsPage>
+
     )
   } else {
     return ( 
@@ -102,8 +113,9 @@ export function DetailedQuestionsPage(): JSX.Element {
             value={answers[6]}
             onChange={(e) => updateAnswer(6, e.target.value)}/>
         {answers[0] && answers[1] && answers[2] && answers[3] && answers[4] && answers[5] && answers[6] && <div>
-          <h2>Congrats you completed the quiz!</h2>
-          <Button onClick={showMyResults}>Get Results</Button>
+
+          <Button onClick={showMyResults}>Get Results!</Button>
+
         </div>}
       </div>
     );
