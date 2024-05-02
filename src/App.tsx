@@ -57,13 +57,7 @@ function App() {
     setIsResultsPage(false);
   }
   
-  async function updateResultsPageButton() {
-    setIsResultsPage(true);
-    setIsDetailedPage(false);
-    setIsBasicPage(false);
-    setIsHomePage(false);
-  }
-
+ 
   return (
     <div className="App">
       {/*Header will contain navigation bar*/}
