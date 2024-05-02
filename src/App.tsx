@@ -22,9 +22,7 @@ function App() {
   const [isHomePage, setIsHomePage] = useState<boolean>(true);
   const [isBasicPage, setIsBasicPage] = useState<boolean>(false);
   const [isDetailedPage, setIsDetailedPage] = useState<boolean>(false);
-  const [isResultsPage,setIsResultsPage] = useState<boolean>(false);
  
-  
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
     localStorage.setItem(saveKeyData, JSON.stringify(key));
@@ -40,24 +38,20 @@ function App() {
     setIsBasicPage(true);
     setIsDetailedPage(false);
     setIsHomePage(false);
-    setIsResultsPage(false);
   }
 
   function updateHomePageButton() {
     setIsHomePage(true);
     setIsBasicPage(false);
     setIsDetailedPage(false);
-    setIsResultsPage(false);
   }
 
   function updateDetailedPageButton() {
     setIsDetailedPage(true);
     setIsBasicPage(false);
     setIsHomePage(false);
-    setIsResultsPage(false);
   }
   
- 
   return (
     <div className="App">
       {/*Header will contain navigation bar*/}
@@ -68,7 +62,6 @@ function App() {
           <Col className = "Header-Button" as={Button} onClick={updateBasicPageButton}>Basic</Col>
           <span></span>
           <Col className = "Header-Button" as={Button} onClick={updateDetailedPageButton}>Detailed</Col>
-          
         </Container>
       </div>
         <div className='App-Body'>
@@ -78,9 +71,6 @@ function App() {
         {isBasicPage && <BasicQuestionsPage ></BasicQuestionsPage>}
         {/*Detailed Questions Page*/}
         {isDetailedPage && <DetailedQuestionsPage></DetailedQuestionsPage>}
-
-        {isResultsPage && <ResultsPage Response='' Page='S'></ResultsPage>}
-
         {/*Footer contains entry for the API key*/}
       </div>
       <footer className='App-footer'>
