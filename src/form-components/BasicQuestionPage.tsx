@@ -1,9 +1,8 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import '../App.css';
 import OpenAI from "openai";
 import { Button, Form } from "react-bootstrap";
 import { ResultsPage } from "./ResultsPage";
-
 
 
 export let basicResponse = "";
@@ -12,14 +11,8 @@ const openai = new OpenAI({apiKey: JSON.parse(localStorage.getItem("MYKEY") as s
 
 
 
-const openai = new OpenAI({apiKey: JSON.parse(localStorage.getItem("MYKEY") as string), dangerouslyAllowBrowser: true});
-
-export let isBasicDone = false;
 
 export function BasicQuestionsPage():  JSX.Element {
-    const [answers, setAnswers] = useState<string[]>(["", "", "", "", "", "", ""]);
-    const [numAnswered, setNumAnswered] = useState<number>(0);
-
 
     
   const [answers, setAnswers] = useState<string[]>(["", "", "", "", "", "", ""]);
@@ -43,17 +36,7 @@ export function BasicQuestionsPage():  JSX.Element {
       return updatedAnswers;
     });
 
-
-    function updateAnswer(index: number, input: string) {
-        setAnswers(prevAnswers => {
-            const updatedAnswers = [...prevAnswers];
-            updatedAnswers[index] = input;
-            updateNumAnswered(updatedAnswers);
-            console.log(answers);
-            return updatedAnswers;
-        });
-    }
-
+  }
 
   
   async function showMyResults() {
@@ -84,13 +67,12 @@ export function BasicQuestionsPage():  JSX.Element {
     )
   } 
   else {
-
     
-    return (
+   
+return (
         <div className="BasicPage">
             <h1 style={{paddingTop: "30px"}}>Career Quiz Basic Questions</h1>
             <progress className="Progress-Bar" value={numAnswered} max={7}></progress>
-
             
             <h3>Question 1: What kind of workplace environment interests you? </h3>
             <Form>
@@ -345,6 +327,8 @@ export function BasicQuestionsPage():  JSX.Element {
                 />
                 
             </Form>
+            
+           
             
            <div> {answers[0] && answers[1] && answers[2] && answers[3] && answers[4] && answers[5] && answers[6] && <div>
         <Button onClick={showMyResults}>Get Results!</Button>
