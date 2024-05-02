@@ -64,7 +64,7 @@ function App() {
                 <option value="Career Counselor">Career Counselor Mode</option>
                 <option value="Pirate with a very thick pirate accent, who is also a career counselor">Pirate Mode</option>
                 <option value="Alien who is very sarcastic and looks down on humans , who is also a career counselor">Alien Mode</option>
-                <option value="King from medieval who can't help but talk about food and money, who is also a career counselor">Medieval King Mode</option>
+                <option value="King from medieval who speaks like shakespeare, who is also a career counselor">Medieval King Mode</option>
             </Form.Select>
         </Form.Group>
       </div>
