@@ -8,11 +8,7 @@ import { DetailedQuestionsPage, isDetailedDone } from "./DetailedQuestionPage";
 //import { HomePage } from './HomePage';
 import { Button, Col } from 'react-bootstrap';
 import Spinner from 'react-bootstrap/Spinner';
-import { useState } from 'react';
 
-
-export function ResultsPage({detailedResponse}: {detailedResponse: string;}): JSX.Element {
-  const [isDetailedPage,setIsDetailedPage] = useState<boolean>(false);
 
 
 
@@ -69,6 +65,7 @@ else {
   );
 }
 }
+
 
 // const [quizRetakeStatus,setQuizRetakeStatus] = useState<boolean>(false);
 // function retakeQuiz() {
