@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import '../App.css';
 import OpenAI from "openai";
 import { Button, Form } from "react-bootstrap";
+import { ResultsPage } from "./ResultsPage";
 
 
 export let basicResponse = "";
-const openai = new OpenAI({apiKey: JSON.parse(localStorage.getItem("MYKEY") as string), dangerouslyAllowBrowser: true});
 export let isBasicDone = false;
+const openai = new OpenAI({apiKey: JSON.parse(localStorage.getItem("MYKEY") as string), dangerouslyAllowBrowser: true});
+
 
 
 
@@ -15,6 +17,8 @@ export function BasicQuestionsPage():  JSX.Element {
     
   const [answers, setAnswers] = useState<string[]>(["", "", "", "", "", "", ""]);
   const [numAnswered, setNumAnswered] = useState<number>(0);
+  const [basicResponse,setBasicResponse] = useState<string>("");
+  const [isResultsPage,setIsResultsPage] = useState<boolean>(false);
   
 
 
@@ -34,9 +38,9 @@ export function BasicQuestionsPage():  JSX.Element {
 
   }
 
-  //change this functiond de=dprifnreijbfieriuerrjenfjr f
-
+  
   async function showMyResults() {
+    setIsResultsPage(true);
     const completion = await openai.chat.completions.create({
       messages: [{"role": "system", "content": "You are a career-starter assistant, skilled in recommending three jobs starting with the most compatabile."},
           {"role": "user", "content": "When asked 'What kind of workplace environment interests you?' they responded" + answers[0]},
@@ -47,26 +51,30 @@ export function BasicQuestionsPage():  JSX.Element {
           {"role": "user", "content": "When asked 'Which of the following best describes your preferred work style?' they responded" + answers[5]},
           {"role": "user", "content": "When asked 'What kind of tasks do you enjoy doing in your free time?' they responded" + answers[6]},],
       model: "gpt-4-turbo",
+      temperature: 0.75,
      
     });
   
     console.log(completion.choices[0].message.content);
-    basicResponse = completion.choices[0].message.content || '';
-    //basicResponse.split("\n");
     isBasicDone = true;
-    console.log(basicResponse);
+    setBasicResponse(completion.choices[0].message.content || '');
   
   }
 
-
+  if (isResultsPage){
+    return(
+      <ResultsPage Response={basicResponse} Page="basic"></ResultsPage>
+    )
+  } 
+  else {
     
    
 return (
         <div className="BasicPage">
-            <h1>Career Quiz Basic Questions</h1>
+            <h1 style={{paddingTop: "30px"}}>Career Quiz Basic Questions</h1>
             <progress className="Progress-Bar" value={numAnswered} max={7}></progress>
             
-            <p>Question 1: What kind of workplace environment interests you? </p>
+            <h3>Question 1: What kind of workplace environment interests you? </h3>
             <Form>
                 <Form.Check
                     type="radio"
@@ -102,7 +110,7 @@ return (
                 />
                 
             </Form>
-            <p>Question 2: What social cause do you care about the most? </p>
+            <h3>Question 2: What social cause do you care about the most? </h3>
             <Form>
                 <Form.Check
                     type="radio"
@@ -139,7 +147,7 @@ return (
                 />
                 
             </Form>
-            <p>Question 3:Congrats you have the day off! How will you spend your spare time?</p>
+            <h3>Question 3: Congrats you have the day off! How will you spend your spare time?</h3>
             <Form>
                 <Form.Check
                     type="radio"
@@ -175,7 +183,7 @@ return (
                 />
                 
             </Form>
-            <p>Question 4: What’s your preferred work style?</p>
+            <h3>Question 4: What’s your preferred work style?</h3>
             <Form>
                 <Form.Check
                     type="radio"
@@ -211,7 +219,7 @@ return (
                 />
                 
             </Form>
-            <p>Question 5: Which of the following environments do you thrive in? </p>
+            <h3>Question 5: Which of the following environments do you thrive in? </h3>
             <Form>
                 <Form.Check
                     type="radio"
@@ -247,7 +255,7 @@ return (
                 />
                 
             </Form>
-            <p>Question 6: Which of the following best describes your preferred work style? </p>
+            <h3>Question 6: Which of the following best describes your preferred work style? </h3>
             <Form>
                 <Form.Check
                     type="radio"
@@ -283,7 +291,7 @@ return (
                 />
                 
             </Form>
-            <p>Question 7: What kind of tasks do you enjoy doing in your free time?</p>
+            <h3>Question 7: What kind of tasks do you enjoy doing in your free time?</h3>
             <Form>
                 <Form.Check
                     type="radio"
@@ -319,16 +327,16 @@ return (
                 />
                 
             </Form>
-            <progress className="Progress-Bar" value={numAnswered} max={7}></progress>
             
            
             
            <div> {answers[0] && answers[1] && answers[2] && answers[3] && answers[4] && answers[5] && answers[6] && <div>
-        <Button onClick={showMyResults}>Submit!</Button>
+        <Button onClick={showMyResults}>Get Results!</Button>
    </div>} </div>
 
         </div>
-    );
+    );  
+    }
 }
     
 
