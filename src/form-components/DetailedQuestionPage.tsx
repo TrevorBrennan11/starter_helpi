@@ -4,7 +4,7 @@ import { useState } from "react";
 
 
 import React from "react";
-import { Button, Col, Form } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { ResultsPage } from "./ResultsPage";
 
 export let detailedResponse = "";
