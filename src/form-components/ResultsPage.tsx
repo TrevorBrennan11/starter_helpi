@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import '../App.css';
 //import {detailedResponse} from "./DetailedQuestionPage"
 //import { basicResponse } from './BasicQuestionPage';
@@ -10,6 +11,10 @@ import Spinner from 'react-bootstrap/Spinner';
 import { useState } from 'react';
 
 
+export function ResultsPage({detailedResponse}: {detailedResponse: string;}): JSX.Element {
+  const [isDetailedPage,setIsDetailedPage] = useState<boolean>(false);
+
+
 
 export function ResultsPage({Response, Page}: {Response: string; Page:string; }): JSX.Element {
   const [isDetailedPage,setIsDetailedPage] = useState<boolean>(false);
@@ -20,6 +25,7 @@ export function ResultsPage({Response, Page}: {Response: string; Page:string; })
     setIsBasicPage(true);
   }
   function retakeDetailedQuiz() {
+
     setIsDetailedPage(true);
   }
 
@@ -27,6 +33,7 @@ export function ResultsPage({Response, Page}: {Response: string; Page:string; })
     return(
       <DetailedQuestionsPage></DetailedQuestionsPage>
     )
+
   } 
 
   else if (isBasicPage){
@@ -67,8 +74,6 @@ else {
 // function retakeQuiz() {
 //   setQuizRetakeStatus(true);
 // }
-
-
 // if(quizRetakeStatus){
 //  return(
 //    <HomePage></HomePage>

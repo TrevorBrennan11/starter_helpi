@@ -11,6 +11,7 @@
 .Progress-Bar {
   height: 40px;
   width: 50%;
+  position: fixed;
 }
 
 .App {
@@ -36,8 +37,8 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding-bottom: 100px;
   padding-top: 80px;
+  padding-bottom: 20px;
 }
 
 .App-footer{
@@ -65,6 +66,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.answers {
+  text-align: left;
 }
 
 .container{

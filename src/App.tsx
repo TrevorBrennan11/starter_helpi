@@ -84,7 +84,9 @@ function App() {
         {isBasicPage && <BasicQuestionsPage ></BasicQuestionsPage>}
         {/*Detailed Questions Page*/}
         {isDetailedPage && <DetailedQuestionsPage></DetailedQuestionsPage>}
+
         {isResultsPage && <ResultsPage Response='' Page='S'></ResultsPage>}
+
         {/*Footer contains entry for the API key*/}
       </div>
       <footer className='App-footer'>

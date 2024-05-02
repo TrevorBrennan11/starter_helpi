@@ -2,6 +2,7 @@
 import OpenAI from "openai";
 import { useState } from "react";
 
+
 import React from "react";
 import { Button, Col, Form } from "react-bootstrap";
 import { ResultsPage } from "./ResultsPage";
@@ -9,10 +10,13 @@ import { ResultsPage } from "./ResultsPage";
 export let detailedResponse = "";
 export let isDetailedDone = false;
 
+
 const openai = new OpenAI({apiKey: JSON.parse(localStorage.getItem("MYKEY") as string), dangerouslyAllowBrowser: true});
 
 export function DetailedQuestionsPage(): JSX.Element {
+
   const[detailedResponse,setDetailedResponse] = useState<string>("");
+
   const[isResultsPage,setIsResultsPage] = useState<boolean>(false);
 
   const [answers, setAnswers] = useState<string[]>(["", "", "", "", "", "", ""]);
@@ -33,6 +37,7 @@ export function DetailedQuestionsPage(): JSX.Element {
     let totalAnswered = updatedAnswers.filter(answer => !!answer).length;
     setNumAnswered(totalAnswered);
   }
+
 
 
   async function showMyResults() {
@@ -58,6 +63,7 @@ export function DetailedQuestionsPage(): JSX.Element {
   if (isResultsPage){
     return(
       <ResultsPage Response={detailedResponse} Page="detailed"></ResultsPage>
+
     )
   } else {
     return ( 
@@ -107,7 +113,9 @@ export function DetailedQuestionsPage(): JSX.Element {
             value={answers[6]}
             onChange={(e) => updateAnswer(6, e.target.value)}/>
         {answers[0] && answers[1] && answers[2] && answers[3] && answers[4] && answers[5] && answers[6] && <div>
+
           <Button onClick={showMyResults}>Get Results!</Button>
+
         </div>}
       </div>
     );
