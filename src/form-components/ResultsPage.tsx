@@ -9,54 +9,41 @@ export function ResultsPage({Response, Page}: {Response: string; Page:string; })
   const [isDetailedPage,setIsDetailedPage] = useState<boolean>(false);
   const [isBasicPage,setIsBasicPage] = useState<boolean>(false);
 
-
-    function retakeBasicQuiz() {
+  function retakeBasicQuiz() {
     setIsBasicPage(true);
   }
-  function retakeDetailedQuiz() {
 
+  function retakeDetailedQuiz() {
     setIsDetailedPage(true);
   }
 
   if (isDetailedPage){
-    return(
-      <DetailedQuestionsPage></DetailedQuestionsPage>
-    )
-
-  } 
-
-  else if (isBasicPage){
-    return(
-      <BasicQuestionsPage></BasicQuestionsPage>
-    )
-  } 
-  
-  else if (Response === '') {
-  return ( 
-    <div className="App-detailed-loading" >
-    <h2>Loading your results!</h2>
-    <Spinner></Spinner>
-    </div>
+    return(<DetailedQuestionsPage></DetailedQuestionsPage>);
+  } else if (isBasicPage){
+    return(<BasicQuestionsPage></BasicQuestionsPage>)
+  } else if (Response === '') {
+    return ( 
+      <div className="App-detailed-loading" >
+      <h2>Loading your results!</h2>
+      <Spinner></Spinner>
+      </div>
   );
-}
-else {
-  
-  return ( 
-    <div className="App-detailed">
-    
-    <h2>Here are your results! </h2>
-    <div>
-            <h3>Based on your responses, here are three career choices that might be a great fit for you:</h3>
-            {Response.split('\n').map((recommendation, index) => (
-                <div key={index}>
-                    <p>{recommendation}</p>
-                </div>
-            ))}
+  } else {
+    return ( 
+      <div className="App-detailed">
+        <h2>Here are your results! </h2>
+        <div>
+          <h3>Based on your responses, here are three career choices that might be a great fit for you:</h3>
+          {Response.split('\n').map((recommendation, index) => (
+            <div key={index}>
+              <p>{recommendation}</p>
+            </div>
+          ))}
         </div>
-    <Col className = "Header-Button" as={Button} onClick={Page === 'basic' ? retakeBasicQuiz : retakeDetailedQuiz }>Retake Quiz!</Col>
-    </div>
-  );
-}
+        <Col className = "Header-Button" as={Button} onClick={Page === 'basic' ? retakeBasicQuiz : retakeDetailedQuiz }>Retake Quiz!</Col>
+      </div>
+    );
+  }
 }
 
 
