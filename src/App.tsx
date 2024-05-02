@@ -4,8 +4,6 @@ import { Button, Col, Container, Form } from 'react-bootstrap';
 import { BasicQuestionsPage } from './form-components/BasicQuestionPage';
 import { DetailedQuestionsPage } from './form-components/DetailedQuestionPage';
 import { HomePage } from './form-components/HomePage';
-import { ResultsPage } from './form-components/ResultsPage';
-
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -14,8 +12,6 @@ const prevKey = localStorage.getItem(saveKeyData); //so it'll look like: MYKEY: 
 if (prevKey !== null) {
   keyData = JSON.parse(prevKey);
 }
-
-
 
 function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
@@ -56,13 +52,9 @@ function App() {
     <div className="App">
       {/*Header will contain navigation bar*/}
       <div className="App-NavBar">
-        <Container fluid>
-          <Col className = "Header-Button" as={Button} onClick={updateHomePageButton}>Home</Col>
-          <span></span>
-          <Col className = "Header-Button" as={Button} onClick={updateBasicPageButton}>Basic</Col>
-          <span></span>
-          <Col className = "Header-Button" as={Button} onClick={updateDetailedPageButton}>Detailed</Col>
-        </Container>
+        <Button className='Header-Button' onClick={updateHomePageButton}>Home</Button>
+        <Button className='Header-Button' onClick={updateBasicPageButton}>Basic</Button>
+        <Button className='Header-Button' onClick={updateDetailedPageButton}>Detailed</Button>
       </div>
         <div className='App-Body'>
         {/*Home Page*/}
