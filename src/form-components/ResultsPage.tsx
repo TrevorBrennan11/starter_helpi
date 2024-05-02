@@ -31,14 +31,15 @@ export function ResultsPage({Response, Page, responseMode}: {Response: string; P
   } else {
     return ( 
       <div>
-        <h2>Here are your results! </h2>
-        <div>
-          <h3>Based on your responses, here are three career choices that might be a great fit for you:</h3>
-          {Response.split('\n').map((recommendation, index) => (
-            <div key={index}>
-              <p>{recommendation}</p>
-            </div>
-          ))}
+        <h2>Here are your results!</h2>
+        <div className='container' style={{width: "100%"}}>
+          <div className='search-wrapper'>
+            {Response.split('\n').map((recommendation, index) => (
+              <div key={index}>
+                <p>{recommendation}</p>
+              </div>
+            ))}
+          </div>
         </div>
         <Button className='Header-Button' onClick={Page === 'basic' ? retakeBasicQuiz : retakeDetailedQuiz }>Retake Quiz!</Button>
       </div>

@@ -5,7 +5,7 @@ export function HomePage(): JSX.Element {
     return(
         <div >
             <h1>Career Starter</h1>
-            <div className="container">
+            <div className="container" style={{width: "40%"}}>
                 <div className='search-wrapper'>
                     Our basic questions quiz provides you with short, easy to answer prompts that can help
                     gauge a general career path for you!
