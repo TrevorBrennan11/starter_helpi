@@ -23,9 +23,9 @@ export function BasicQuestionsPage():  JSX.Element {
         const updatedAnswers = [...prevAnswers];
         updatedAnswers[index] = input;
         updateNumAnswered(updatedAnswers);
-        console.log(answers);
         return updatedAnswers;
         });
+        //console.log(answers);
     }
 
     async function showMyResults() {
