@@ -1,14 +1,9 @@
-
 import OpenAI from "openai";
 import { useState } from "react";
-
-
-import React from "react";
 import { Button } from "react-bootstrap";
 import { ResultsPage } from "./ResultsPage";
 
 export let detailedResponse = "";
-export let isDetailedDone = false;
 
 
 const openai = new OpenAI({apiKey: JSON.parse(localStorage.getItem("MYKEY") as string), dangerouslyAllowBrowser: true});
@@ -55,7 +50,6 @@ export function DetailedQuestionsPage(): JSX.Element {
       temperature: 0.75,
     });
     console.log(completion.choices[0].message.content);
-    isDetailedDone = true;
     setDetailedResponse(completion.choices[0].message.content || '');
   }
 
