@@ -1,12 +1,7 @@
-import React from "react";
 // import { Form } from "react-bootstrap";
 import '../App.css';
 
-
 export function HomePage(): JSX.Element {
-
-
-
     return(
         <div >
             <h1>Career Starter</h1>
