@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import { Button, Col, Container, Form } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 import { BasicQuestionsPage } from './form-components/BasicQuestionPage';
 import { DetailedQuestionsPage } from './form-components/DetailedQuestionPage';
 import { HomePage } from './form-components/HomePage';
