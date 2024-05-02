@@ -30,7 +30,7 @@ export function DetailedQuestionsPage(): JSX.Element {
   async function showMyResults() {
     setIsResultsPage(true);
     const completion = await openai.chat.completions.create({
-      messages: [{"role": "system", "content": "You are a career counselor who is giving me a list of careers that will suit me."},
+      messages: [{"role": "system", "content": "You are a career counselor who is providing the user with a list of recommended careers based on a personality quiz. Only provide a list of three reccommended careers and why they would be a good fit."},
           {"role": "user", "content": "When asked 'How inclined are you to take leadership roles when working in groups?' they responded" + answers[0]},
           {"role": "user", "content": "When asked 'What physical environment do you prefer to be in, beyond just working?' they responded" + answers[1]},
           {"role": "user", "content": "When asked 'If you could do anything, without needing to worry about money, what would be and why?' they responded" + answers[2]},
