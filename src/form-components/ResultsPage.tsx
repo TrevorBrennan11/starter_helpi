@@ -40,11 +40,9 @@ export function ResultsPage({Response, Page}: {Response: string; Page:string; })
             </div>
           ))}
         </div>
-        <Col className = "Header-Button" as={Button} onClick={Page === 'basic' ? retakeBasicQuiz : retakeDetailedQuiz }>Retake Quiz!</Col>
+        <Button className='Header-Button' onClick={Page === 'basic' ? retakeBasicQuiz : retakeDetailedQuiz }>Retake Quiz!</Button>
       </div>
     );
   }
 }
-
-
 
