@@ -4,18 +4,12 @@ import { Button } from "react-bootstrap";
 import { ResultsPage } from "./ResultsPage";
 
 export let detailedResponse = "";
-
-
 const openai = new OpenAI({apiKey: JSON.parse(localStorage.getItem("MYKEY") as string), dangerouslyAllowBrowser: true});
 
 export function DetailedQuestionsPage(): JSX.Element {
-
   const[detailedResponse,setDetailedResponse] = useState<string>("");
-
   const[isResultsPage,setIsResultsPage] = useState<boolean>(false);
-
   const [answers, setAnswers] = useState<string[]>(["", "", "", "", "", "", ""]);
-
   const [numAnswered, setNumAnswered] = useState<number>(0);
 
   function updateAnswer(index: number, input: string) {
@@ -25,15 +19,13 @@ export function DetailedQuestionsPage(): JSX.Element {
       updateNumAnswered(updatedAnswers);
       return updatedAnswers;
     });
-    console.log(answers);
+    //console.log(answers);
   }
 
   function updateNumAnswered(updatedAnswers: string[]) {
     let totalAnswered = updatedAnswers.filter(answer => !!answer).length;
     setNumAnswered(totalAnswered);
   }
-
-
 
   async function showMyResults() {
     setIsResultsPage(true);
@@ -53,11 +45,9 @@ export function DetailedQuestionsPage(): JSX.Element {
     setDetailedResponse(completion.choices[0].message.content || '');
   }
 
-
   if (isResultsPage){
     return(
       <ResultsPage Response={detailedResponse} Page="detailed"></ResultsPage>
-
     )
   } else {
     return ( 
@@ -106,11 +96,9 @@ export function DetailedQuestionsPage(): JSX.Element {
             placeholder="Answer here"
             value={answers[6]}
             onChange={(e) => updateAnswer(6, e.target.value)}/>
-        {answers[0] && answers[1] && answers[2] && answers[3] && answers[4] && answers[5] && answers[6] && <div>
-
+        {answers[0] && answers[1] && answers[2] && answers[3] && answers[4] && answers[5] && answers[6] && 
           <Button onClick={showMyResults}>Get Results!</Button>
-
-        </div>}
+        }
       </div>
     );
   }
