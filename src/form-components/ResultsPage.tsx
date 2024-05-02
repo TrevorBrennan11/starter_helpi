@@ -47,13 +47,4 @@ export function ResultsPage({Response, Page}: {Response: string; Page:string; })
 }
 
 
-// const [quizRetakeStatus,setQuizRetakeStatus] = useState<boolean>(false);
-// function retakeQuiz() {
-//   setQuizRetakeStatus(true);
-// }
-// if(quizRetakeStatus){
-//  return(
-//    <HomePage></HomePage>
-//  )
-// }
 
