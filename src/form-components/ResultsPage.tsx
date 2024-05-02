@@ -1,16 +1,9 @@
 import { useState } from 'react';
 import '../App.css';
-//import {detailedResponse} from "./DetailedQuestionPage"
-//import { basicResponse } from './BasicQuestionPage';
-import React from "react";
 import { BasicQuestionsPage  } from './BasicQuestionPage';
 import { DetailedQuestionsPage } from "./DetailedQuestionPage";
-//import { HomePage } from './HomePage';
 import { Button, Col } from 'react-bootstrap';
 import Spinner from 'react-bootstrap/Spinner';
-
-
-
 
 export function ResultsPage({Response, Page}: {Response: string; Page:string; }): JSX.Element {
   const [isDetailedPage,setIsDetailedPage] = useState<boolean>(false);
