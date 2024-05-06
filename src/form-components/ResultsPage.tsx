@@ -34,7 +34,7 @@ export function ResultsPage({Response, Page, responseMode, colorPalate}: {Respon
       <div>
         <h2>Here are your results!</h2>
         <div className='container' style={{width: "100%", backgroundColor: colorPalate[1]}}>
-          <div className='search-wrapper'>
+          <div className='search-wrapper' style={{backgroundColor: colorPalate[2]}}>
             {Response.split('\n').map((recommendation, index) => (
               <div key={index}>
                 <p>{recommendation}</p>
@@ -42,7 +42,7 @@ export function ResultsPage({Response, Page, responseMode, colorPalate}: {Respon
             ))}
           </div>
         </div>
-        <Button className='Header-Button' onClick={Page === 'basic' ? retakeBasicQuiz : retakeDetailedQuiz }>Retake Quiz!</Button>
+        <Button onClick={Page === 'basic' ? retakeBasicQuiz : retakeDetailedQuiz } style={{color: colorPalate[2], backgroundColor: colorPalate[1], marginTop: '20px'}}>Retake Quiz!</Button>
       </div>
     );
   }
