@@ -1,5 +1,7 @@
+
 .Header-Button {
   margin: 20px;
+  color: black;
 }
 
 .Submit-Button {
@@ -35,7 +37,6 @@
 }
 
 .App-Body{
-  background-color: lightskyblue;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -44,10 +45,8 @@
 }
 
 .App-footer{
-  
   background-color: darkblue;
   color: white;
-  
   display: flex;
   flex-direction: column;
   align-items: center;
