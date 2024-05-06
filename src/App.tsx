@@ -86,9 +86,9 @@ function App() {
         {/*Home Page*/}
         {isHomePage && <HomePage colorPalate={colorPalate}></HomePage>}
         {/*Basic Questions Page*/}
-        {isBasicPage && <BasicQuestionsPage responseMode={responseMode} ></BasicQuestionsPage>}
+        {isBasicPage && <BasicQuestionsPage responseMode={responseMode} colorPalate={colorPalate}></BasicQuestionsPage>}
         {/*Detailed Questions Page*/}
-        {isDetailedPage && <DetailedQuestionsPage responseMode={responseMode}></DetailedQuestionsPage>}
+        {isDetailedPage && <DetailedQuestionsPage responseMode={responseMode} colorPalate={colorPalate}></DetailedQuestionsPage>}
         {/*Footer contains entry for the API key*/}
       </div>
       <footer className='App-footer' style={{backgroundColor: colorPalate[1]}}>

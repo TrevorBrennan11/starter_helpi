@@ -6,7 +6,7 @@ import { Button } from 'react-bootstrap';
 import Spinner from 'react-bootstrap/Spinner';
 import { Color } from 'react-bootstrap/esm/types';
 
-export function ResultsPage({Response, Page, responseMode}: {Response: string; Page:string; responseMode: string;}, {colorPalate}: {colorPalate: Color[]}): JSX.Element {
+export function ResultsPage({Response, Page, responseMode, colorPalate}: {Response: string; Page:string; responseMode: string; colorPalate: Color[]}): JSX.Element {
   const [isDetailedPage,setIsDetailedPage] = useState<boolean>(false);
   const [isBasicPage,setIsBasicPage] = useState<boolean>(false);
 
@@ -19,9 +19,9 @@ export function ResultsPage({Response, Page, responseMode}: {Response: string; P
   }
 
   if (isDetailedPage){
-    return(<DetailedQuestionsPage responseMode={responseMode}></DetailedQuestionsPage>);
+    return(<DetailedQuestionsPage responseMode={responseMode} colorPalate={colorPalate}></DetailedQuestionsPage>);
   } else if (isBasicPage){
-    return(<BasicQuestionsPage responseMode={responseMode}></BasicQuestionsPage>)
+    return(<BasicQuestionsPage responseMode={responseMode} colorPalate={colorPalate}></BasicQuestionsPage>)
   } else if (Response === '') {
     return ( 
       <div>
@@ -33,7 +33,7 @@ export function ResultsPage({Response, Page, responseMode}: {Response: string; P
     return ( 
       <div>
         <h2>Here are your results!</h2>
-        <div className='container' style={{width: "100%"}}>
+        <div className='container' style={{width: "100%", backgroundColor: colorPalate[1]}}>
           <div className='search-wrapper'>
             {Response.split('\n').map((recommendation, index) => (
               <div key={index}>

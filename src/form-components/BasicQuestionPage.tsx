@@ -8,7 +8,7 @@ import { Color } from "react-bootstrap/esm/types";
 export let basicResponse = "";
 const openai = new OpenAI({apiKey: JSON.parse(localStorage.getItem("MYKEY") as string), dangerouslyAllowBrowser: true});
 
-export function BasicQuestionsPage({responseMode}: {responseMode: string}, {colorPalate}: {colorPalate: Color[]}):  JSX.Element {    
+export function BasicQuestionsPage({responseMode, colorPalate}: {responseMode: string, colorPalate: Color[]}):  JSX.Element {    
     const [answers, setAnswers] = useState<string[]>(["", "", "", "", "", "", ""]);
     const [numAnswered, setNumAnswered] = useState<number>(0);
     const [basicResponse,setBasicResponse] = useState<string>("");
@@ -49,7 +49,7 @@ export function BasicQuestionsPage({responseMode}: {responseMode: string}, {colo
 
     if (isResultsPage){
         return(
-            <ResultsPage Response={basicResponse} Page="basic" responseMode={responseMode}></ResultsPage>
+            <ResultsPage Response={basicResponse} Page="basic" responseMode={responseMode} colorPalate={colorPalate}></ResultsPage>
         )
     } else {
         return (
