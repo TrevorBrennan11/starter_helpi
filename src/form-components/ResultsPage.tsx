@@ -4,8 +4,9 @@ import { BasicQuestionsPage  } from './BasicQuestionPage';
 import { DetailedQuestionsPage } from "./DetailedQuestionPage";
 import { Button } from 'react-bootstrap';
 import Spinner from 'react-bootstrap/Spinner';
+import { Color } from 'react-bootstrap/esm/types';
 
-export function ResultsPage({Response, Page, responseMode}: {Response: string; Page:string; responseMode: string; }): JSX.Element {
+export function ResultsPage({Response, Page, responseMode}: {Response: string; Page:string; responseMode: string;}, {colorPalate}: {colorPalate: Color[]}): JSX.Element {
   const [isDetailedPage,setIsDetailedPage] = useState<boolean>(false);
   const [isBasicPage,setIsBasicPage] = useState<boolean>(false);
 

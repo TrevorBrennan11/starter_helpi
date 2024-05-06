@@ -2,13 +2,13 @@ import OpenAI from "openai";
 import { useState } from "react";
 import { Button } from "react-bootstrap";
 import { ResultsPage } from "./ResultsPage";
+import { Color } from "react-bootstrap/esm/types";
 
 
 export let detailedResponse = "";
 const openai = new OpenAI({apiKey: JSON.parse(localStorage.getItem("MYKEY") as string), dangerouslyAllowBrowser: true});
 
-export function DetailedQuestionsPage({responseMode}: 
-  {responseMode: string}): JSX.Element {
+export function DetailedQuestionsPage({responseMode}: {responseMode: string}, {colorPalate}: {colorPalate: Color[]}): JSX.Element {
   const[detailedResponse,setDetailedResponse] = useState<string>("");
   const[isResultsPage,setIsResultsPage] = useState<boolean>(false);
   const [answers, setAnswers] = useState<string[]>(["", "", "", "", "", "", ""]);

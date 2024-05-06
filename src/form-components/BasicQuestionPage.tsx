@@ -3,11 +3,12 @@ import '../App.css';
 import OpenAI from "openai";
 import { Button, Form } from "react-bootstrap";
 import { ResultsPage } from "./ResultsPage";
+import { Color } from "react-bootstrap/esm/types";
 
 export let basicResponse = "";
 const openai = new OpenAI({apiKey: JSON.parse(localStorage.getItem("MYKEY") as string), dangerouslyAllowBrowser: true});
 
-export function BasicQuestionsPage({responseMode}: {responseMode: string}):  JSX.Element {    
+export function BasicQuestionsPage({responseMode}: {responseMode: string}, {colorPalate}: {colorPalate: Color[]}):  JSX.Element {    
     const [answers, setAnswers] = useState<string[]>(["", "", "", "", "", "", ""]);
     const [numAnswered, setNumAnswered] = useState<number>(0);
     const [basicResponse,setBasicResponse] = useState<string>("");
