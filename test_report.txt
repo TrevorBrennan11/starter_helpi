@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (55 ms)
+  ✕ renders learn react link (46 ms)
 
   ● renders learn react link
 
@@ -17,21 +17,25 @@ FAIL src/App.test.tsx
         [36m>[39m
           [36m<div[39m
             [33mclass[39m=[32m"App-NavBar"[39m
+            [33mstyle[39m=[32m"background-color: rgb(0, 0, 139);"[39m
           [36m>[39m
             [36m<button[39m
               [33mclass[39m=[32m"Header-Button btn btn-primary"[39m
+              [33mstyle[39m=[32m"background-color: rgb(135, 206, 250);"[39m
               [33mtype[39m=[32m"button"[39m
             [36m>[39m
               [0mHome[0m
             [36m</button>[39m
             [36m<button[39m
               [33mclass[39m=[32m"Header-Button btn btn-primary"[39m
+              [33mstyle[39m=[32m"background-color: rgb(135, 206, 250);"[39m
               [33mtype[39m=[32m"button"[39m
             [36m>[39m
               [0mBasic[0m
             [36m</button>[39m
             [36m<button[39m
               [33mclass[39m=[32m"Header-Button btn btn-primary"[39m
+              [33mstyle[39m=[32m"background-color: rgb(135, 206, 250);"[39m
               [33mtype[39m=[32m"button"[39m
             [36m>[39m
               [0mDetailed[0m
@@ -66,6 +70,7 @@ FAIL src/App.test.tsx
           [36m</div>[39m
           [36m<div[39m
             [33mclass[39m=[32m"App-Body"[39m
+            [33mstyle[39m=[32m"background-color: rgb(135, 206, 250);"[39m
           [36m>[39m
             [36m<div>[39m
               [36m<h1>[39m
@@ -73,15 +78,17 @@ FAIL src/App.test.tsx
               [36m</h1>[39m
               [36m<div[39m
                 [33mclass[39m=[32m"container"[39m
-                [33mstyle[39m=[32m"width: 40%;"[39m
+                [33mstyle[39m=[32m"width: 40%; background-color: rgb(0, 0, 139);"[39m
               [36m>[39m
                 [36m<div[39m
                   [33mclass[39m=[32m"search-wrapper"[39m
+                  [33mstyle[39m=[32m"background-color: rgb(255, 255, 255);"[39m
                 [36m>[39m
                   [0mOur basic questions quiz provides you with short, easy to answer prompts that can help gauge a general career path for you![0m
                 [36m</div>[39m
                 [36m<div[39m
                   [33mclass[39m=[32m"search-wrapper"[39m
+                  [33mstyle[39m=[32m"background-color: rgb(255, 255, 255);"[39m
                 [36m>[39m
                   [0mOur detailed questions quiz provides you with longer, and more in-depth prompts, that will be more effective in gauging a specific career path that suits you![0m
                 [36m</div>[39m
@@ -90,6 +97,7 @@ FAIL src/App.test.tsx
           [36m</div>[39m
           [36m<footer[39m
             [33mclass[39m=[32m"App-footer"[39m
+            [33mstyle[39m=[32m"background-color: rgb(0, 0, 139);"[39m
           [36m>[39m
             [36m<form[39m
               [33mclass[39m=[32m""[39m
@@ -141,21 +149,21 @@ FAIL src/App.test.tsx
 ---------------------------|---------|----------|---------|---------|-------------------
 File                       | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ---------------------------|---------|----------|---------|---------|-------------------
-All files                  |      12 |    11.36 |    3.27 |   12.19 |                   
- src                       |   28.57 |    41.66 |   11.11 |   28.57 |                   
-  App.tsx                  |   41.66 |     62.5 |   14.28 |   41.66 | 14,25-52          
+All files                  |   12.03 |    10.41 |    3.27 |   12.21 |                   
+ src                       |   25.58 |    31.25 |   11.11 |   25.58 |                   
+  App.tsx                  |   34.37 |    41.66 |   14.28 |   34.37 | 15,27-66          
   index.tsx                |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts       |       0 |        0 |       0 |       0 | 3-10              
  src/form-components       |    5.55 |        0 |    1.92 |    5.68 |                   
-  BasicQuestionPage.tsx    |    4.08 |        0 |       0 |    4.16 | 11-299            
+  BasicQuestionPage.tsx    |    4.08 |        0 |       0 |    4.16 | 12-354            
   DetailedQuestionPage.tsx |    7.14 |        0 |       0 |     7.4 | 12-100            
   HomePage.tsx             |     100 |      100 |     100 |     100 |                   
-  ResultsPage.tsx          |       0 |        0 |       0 |       0 | 9-38              
+  ResultsPage.tsx          |       0 |        0 |       0 |       0 | 10-39             
 ---------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.32 s
+Time:        3.14 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
