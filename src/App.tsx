@@ -4,6 +4,7 @@ import { Button, Form } from 'react-bootstrap';
 import { BasicQuestionsPage } from './form-components/BasicQuestionPage';
 import { DetailedQuestionsPage } from './form-components/DetailedQuestionPage';
 import { HomePage } from './form-components/HomePage';
+import { Color } from 'react-bootstrap/esm/types';
 //import { updateSwitch } from 'typescript';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
@@ -19,6 +20,7 @@ function App() {
   const [isHomePage, setIsHomePage] = useState<boolean>(true);
   const [isBasicPage, setIsBasicPage] = useState<boolean>(false);
   const [isDetailedPage, setIsDetailedPage] = useState<boolean>(false);
+  const [colorPalate, setColorPalate] = useState<Color[]>(["#87cefa", "#00008b", "#ffffff"]);
  
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
@@ -49,16 +51,28 @@ function App() {
     setIsHomePage(false);
   }
   function changeMode(event: React.ChangeEvent<HTMLSelectElement>){
+    switch (event.target.value) {
+      case ("Pirate with a very thick pirate accent, who is also a career counselor"):
+        setColorPalate(["#f5f5dc", "#8b4513", "#ffffff"]);
+        break;
+      case ("Alien who is very sarcastic and looks down on humans , who is also a career counselor"):
+        break;
+      case ("King from medieval who speaks like shakespeare, who is also a career counselor"):
+        break;
+      default:
+        setColorPalate(["#87cefa", "#00008b", "#ffffff"]);
+        break;
+    }
     setResponseMode(event.target.value);
   }
   
   return (
     <div className="App">
       {/*Header will contain navigation bar*/}
-      <div className="App-NavBar">
-        <Button className='Header-Button' onClick={updateHomePageButton}>Home</Button>
-        <Button className='Header-Button' onClick={updateBasicPageButton}>Basic</Button>
-        <Button className='Header-Button' onClick={updateDetailedPageButton}>Detailed</Button>
+      <div className="App-NavBar" style={{backgroundColor: colorPalate[1]}}>
+        <Button className='Header-Button' style={{backgroundColor: colorPalate[0]}} onClick={updateHomePageButton}>Home</Button>
+        <Button className='Header-Button' style={{backgroundColor: colorPalate[0]}} onClick={updateBasicPageButton}>Basic</Button>
+        <Button className='Header-Button' style={{backgroundColor: colorPalate[0]}} onClick={updateDetailedPageButton}>Detailed</Button>
         <Form.Group controlId="userMode">
             <Form.Select value={responseMode} onChange={changeMode}>
                 <option value="Career Counselor">Career Counselor Mode</option>
@@ -68,16 +82,16 @@ function App() {
             </Form.Select>
         </Form.Group>
       </div>
-        <div className='App-Body'>
+        <div className='App-Body' style={{backgroundColor: colorPalate[0]}}>
         {/*Home Page*/}
-        {isHomePage && <HomePage></HomePage>}
+        {isHomePage && <HomePage colorPalate={colorPalate}></HomePage>}
         {/*Basic Questions Page*/}
-        {isBasicPage && <BasicQuestionsPage responseMode={responseMode} ></BasicQuestionsPage>}
+        {isBasicPage && <BasicQuestionsPage responseMode={responseMode} colorPalate={colorPalate}></BasicQuestionsPage>}
         {/*Detailed Questions Page*/}
-        {isDetailedPage && <DetailedQuestionsPage responseMode={responseMode}></DetailedQuestionsPage>}
+        {isDetailedPage && <DetailedQuestionsPage responseMode={responseMode} colorPalate={colorPalate}></DetailedQuestionsPage>}
         {/*Footer contains entry for the API key*/}
       </div>
-      <footer className='App-footer'>
+      <footer className='App-footer' style={{backgroundColor: colorPalate[1]}}>
         <Form>
           <Form.Label>API Key:</Form.Label>
           <div style={{display: 'flex', flexDirection: 'row'}}>

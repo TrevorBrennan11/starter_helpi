@@ -1,5 +1,7 @@
+
 .Header-Button {
   margin: 20px;
+  color: black;
 }
 
 .Submit-Button {
@@ -31,11 +33,9 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  background-color: darkblue;
 }
 
 .App-Body{
-  background-color: lightskyblue;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -44,10 +44,7 @@
 }
 
 .App-footer{
-  
-  background-color: darkblue;
   color: white;
-  
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -76,7 +73,6 @@
 
 .container{
   margin: auto;
-  background-color: darkblue;
   display:flex;
   justify-content: space-around;
   padding: 3em 2.5em;
