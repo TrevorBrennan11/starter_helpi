@@ -4,6 +4,7 @@ import { Button, Form } from 'react-bootstrap';
 import { BasicQuestionsPage } from './form-components/BasicQuestionPage';
 import { DetailedQuestionsPage } from './form-components/DetailedQuestionPage';
 import { HomePage } from './form-components/HomePage';
+//import { updateSwitch } from 'typescript';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -12,8 +13,8 @@ const prevKey = localStorage.getItem(saveKeyData); //so it'll look like: MYKEY: 
 if (prevKey !== null) {
   keyData = JSON.parse(prevKey);
 }
-
 function App() {
+  const [responseMode,setResponseMode] = useState<string>("Career Counselor");
   const [key, setKey] = useState<string>(keyData); //for api key input
   const [isHomePage, setIsHomePage] = useState<boolean>(true);
   const [isBasicPage, setIsBasicPage] = useState<boolean>(false);
@@ -47,6 +48,9 @@ function App() {
     setIsBasicPage(false);
     setIsHomePage(false);
   }
+  function changeMode(event: React.ChangeEvent<HTMLSelectElement>){
+    setResponseMode(event.target.value);
+  }
   
   return (
     <div className="App">
@@ -55,14 +59,22 @@ function App() {
         <Button className='Header-Button' onClick={updateHomePageButton}>Home</Button>
         <Button className='Header-Button' onClick={updateBasicPageButton}>Basic</Button>
         <Button className='Header-Button' onClick={updateDetailedPageButton}>Detailed</Button>
+        <Form.Group controlId="userMode">
+            <Form.Select value={responseMode} onChange={changeMode}>
+                <option value="Career Counselor">Career Counselor Mode</option>
+                <option value="Pirate with a very thick pirate accent, who is also a career counselor">Pirate Mode</option>
+                <option value="Alien who is very sarcastic and looks down on humans , who is also a career counselor">Alien Mode</option>
+                <option value="King from medieval who speaks like shakespeare, who is also a career counselor">Medieval King Mode</option>
+            </Form.Select>
+        </Form.Group>
       </div>
         <div className='App-Body'>
         {/*Home Page*/}
         {isHomePage && <HomePage></HomePage>}
         {/*Basic Questions Page*/}
-        {isBasicPage && <BasicQuestionsPage ></BasicQuestionsPage>}
+        {isBasicPage && <BasicQuestionsPage responseMode={responseMode} ></BasicQuestionsPage>}
         {/*Detailed Questions Page*/}
-        {isDetailedPage && <DetailedQuestionsPage></DetailedQuestionsPage>}
+        {isDetailedPage && <DetailedQuestionsPage responseMode={responseMode}></DetailedQuestionsPage>}
         {/*Footer contains entry for the API key*/}
       </div>
       <footer className='App-footer'>
