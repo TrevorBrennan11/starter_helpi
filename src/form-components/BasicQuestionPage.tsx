@@ -55,7 +55,7 @@ export function BasicQuestionsPage({responseMode, colorPalate}: {responseMode: s
         return (
             <div className="BasicPage">
                 <h1 style={{paddingTop: "30px"}}>Career Quiz Basic Questions</h1>
-                <progress className="Progress-Bar" value={numAnswered} max={7} style={{accentColor: colorPalate[1]}}></progress>
+                <progress className="Progress-Bar" value={numAnswered} max={7}></progress>
                 <h3>Question 1: What kind of workplace environment interests you? </h3>
                 <Form>
                     <Form.Check
@@ -304,7 +304,7 @@ export function BasicQuestionsPage({responseMode, colorPalate}: {responseMode: s
                     /> 
                 </Form>
                 {answers[0] && answers[1] && answers[2] && answers[3] && answers[4] && answers[5] && answers[6] && 
-                    <Button onClick={showMyResults} style={{color: colorPalate[2], backgroundColor: colorPalate[1], marginTop: '20px'}}>Get Results!</Button>
+                    <Button onClick={showMyResults}>Get Results!</Button>
                 } 
             </div>
         );  

@@ -55,7 +55,7 @@ export function DetailedQuestionsPage({responseMode, colorPalate}: {responseMode
     return ( 
       <div className="DetailedPage">
         <h1 style={{paddingTop: "30px"}}>Career Quiz Detailed Questions</h1>
-        <progress className="Progress-Bar" value={numAnswered} max={7} style={{accentColor: colorPalate[1]}}></progress>
+        <progress className="Progress-Bar" value={numAnswered} max={7}></progress>
         <h3>Question 1: How inclined are you to take leadership roles when working in groups?</h3> 
         <textarea 
             style={{width: "75%"}}
@@ -99,7 +99,7 @@ export function DetailedQuestionsPage({responseMode, colorPalate}: {responseMode
             value={answers[6]}
             onChange={(e) => updateAnswer(6, e.target.value)}/>
         {answers[0] && answers[1] && answers[2] && answers[3] && answers[4] && answers[5] && answers[6] && 
-          <Button onClick={showMyResults} style={{color: colorPalate[2], backgroundColor: colorPalate[1], marginTop: '20px'}}>Get Results!</Button>
+          <Button onClick={showMyResults}>Get Results!</Button>
         }
       </div>
     );
