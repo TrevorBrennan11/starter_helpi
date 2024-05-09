@@ -39,7 +39,7 @@ export function ResultsPage({Response, Page, responseMode, colorPalate}: {Respon
     return ( 
       <div>
         <h2>Here are your results!</h2>
-        <img src="Pirate.jpeg" alt='pirate image'></img>
+        <img src="Pirate.jpeg"></img>
         <div className='container' style={{width: "100%", backgroundColor: colorPalate[1]}}>
           <div className='search-wrapper' style={{backgroundColor: colorPalate[2]}}>
             {Response.split('\n').map((recommendation, index) => (
@@ -58,7 +58,7 @@ export function ResultsPage({Response, Page, responseMode, colorPalate}: {Respon
     return ( 
       <div>
         <h2>Here are your results!</h2>
-        <img src="Alien.jpg" alt='alien image'></img>
+        <img src="Alien.jpg"></img>
         <div className='container' style={{width: "100%", backgroundColor: colorPalate[1]}}>
           <div className='search-wrapper' style={{backgroundColor: colorPalate[2]}}>
             {Response.split('\n').map((recommendation, index) => (
@@ -77,7 +77,7 @@ export function ResultsPage({Response, Page, responseMode, colorPalate}: {Respon
     return ( 
       <div>
         <h2>Here are your results!</h2>
-        <img src="Medieveal.jpg" alt='Medieval image'></img>
+        <img src="Medieveal.jpg" ></img>
         <div className='container' style={{width: "100%", backgroundColor: colorPalate[1]}}>
           <div className='search-wrapper' style={{backgroundColor: colorPalate[2]}}>
             {Response.split('\n').map((recommendation, index) => (
@@ -96,7 +96,7 @@ export function ResultsPage({Response, Page, responseMode, colorPalate}: {Respon
     return ( 
       <div>
         <h2>Here are your results!</h2>
-        <img src="defaultAvatar.jpeg" alt='Career Counseler Image'></img>
+        <img src="defaultAvatar.jpeg" ></img>
         <div className='container' style={{width: "100%", backgroundColor: colorPalate[1]}}>
           <div className='search-wrapper' style={{backgroundColor: colorPalate[2]}}>
             {Response.split('\n').map((recommendation, index) => (
