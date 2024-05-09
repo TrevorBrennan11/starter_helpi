@@ -3,11 +3,13 @@ import '../App.css';
 import OpenAI from "openai";
 import { Button, Form } from "react-bootstrap";
 import { ResultsPage } from "./ResultsPage";
+import React from "react";
+
 
 export let basicResponse = "";
 const openai = new OpenAI({apiKey: JSON.parse(localStorage.getItem("MYKEY") as string), dangerouslyAllowBrowser: true});
 
-export function BasicQuestionsPage({responseMode}: {responseMode: string}):  JSX.Element {    
+export function BasicQuestionsPage():  JSX.Element {    
     const [answers, setAnswers] = useState<string[]>(["", "", "", "", "", "", ""]);
     const [numAnswered, setNumAnswered] = useState<number>(0);
     const [basicResponse,setBasicResponse] = useState<string>("");
@@ -31,7 +33,7 @@ export function BasicQuestionsPage({responseMode}: {responseMode: string}):  JSX
     async function showMyResults() {
         setIsResultsPage(true);
         const completion = await openai.chat.completions.create({
-            messages: [{"role": "system", "content": "You are a " +  responseMode + " skilled in recommending three jobs starting with the most compatabile."},
+            messages: [{"role": "system", "content": "You are a career-starter assistant, skilled in recommending three jobs starting with the most compatabile."},
             {"role": "user", "content": "When asked 'What kind of workplace environment interests you?' they responded" + answers[0]},
             {"role": "user", "content": "When asked 'What social cause do you care about the most?' they responded" + answers[1]},
             {"role": "user", "content": "When asked 'Congrats you have the day off! How will you spend your spare time?' they responded" + answers[2]},
@@ -48,7 +50,7 @@ export function BasicQuestionsPage({responseMode}: {responseMode: string}):  JSX
 
     if (isResultsPage){
         return(
-            <ResultsPage Response={basicResponse} Page="basic" responseMode={responseMode}></ResultsPage>
+            <ResultsPage Response={basicResponse} Page="basic"></ResultsPage>
         )
     } else {
         return (
