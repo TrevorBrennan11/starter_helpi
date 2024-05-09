@@ -56,8 +56,10 @@ function App() {
         setColorPalate(["#f5f5dc", "#8b4513", "#ffffff"]);
         break;
       case ("Alien who is very sarcastic and looks down on humans , who is also a career counselor"):
+        setColorPalate(["#90ee90", "#008000", "#ffffff"]);
         break;
       case ("King from medieval who speaks like shakespeare, who is also a career counselor"):
+        setColorPalate(["#dda0dd", "#4b0082", "#ffffff"]);
         break;
       default:
         setColorPalate(["#87cefa", "#00008b", "#ffffff"]);
