@@ -39,6 +39,7 @@ export function ResultsPage({Response, Page, responseMode, colorPalate}: {Respon
     return ( 
       <div>
         <h2>Here are your results!</h2>
+
         <img src="Pirate.jpeg" className='result-image'></img>
         <div className='container' style={{width: "100%", backgroundColor: colorPalate[1]}}>
           <div className='search-wrapper' style={{backgroundColor: colorPalate[2]}}>
@@ -58,6 +59,7 @@ export function ResultsPage({Response, Page, responseMode, colorPalate}: {Respon
     return ( 
       <div>
         <h2>Here are your results!</h2>
+
         <img src="Alien.jpg" className='result-image'></img>
         <div className='container' style={{width: "100%", backgroundColor: colorPalate[1]}}>
           <div className='search-wrapper' style={{backgroundColor: colorPalate[2]}}>
