@@ -2,6 +2,7 @@ import OpenAI from "openai";
 import { useState } from "react";
 import { Button } from "react-bootstrap";
 import { ResultsPage } from "./ResultsPage";
+import React from 'react';
 
 export let detailedResponse = "";
 const openai = new OpenAI({apiKey: JSON.parse(localStorage.getItem("MYKEY") as string), dangerouslyAllowBrowser: true});

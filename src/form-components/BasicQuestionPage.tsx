@@ -3,6 +3,7 @@ import '../App.css';
 import OpenAI from "openai";
 import { Button, Form } from "react-bootstrap";
 import { ResultsPage } from "./ResultsPage";
+import React from 'react';
 
 export let basicResponse = "";
 const openai = new OpenAI({apiKey: JSON.parse(localStorage.getItem("MYKEY") as string), dangerouslyAllowBrowser: true});
@@ -54,7 +55,7 @@ export function BasicQuestionsPage():  JSX.Element {
         return (
             <div className="BasicPage">
                 <h1 style={{paddingTop: "30px"}}>Career Quiz Basic Questions</h1>
-                <progress className="Progress-Bar" value={numAnswered} max={7}></progress>
+                <progress className="Progress-Bar" value={numAnswered} max={7} aria-label="jfrofj"> </progress>
                 <h3>Question 1: What kind of workplace environment interests you? </h3>
                 <Form>
                     <Form.Check

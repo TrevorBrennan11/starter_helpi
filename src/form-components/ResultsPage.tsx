@@ -4,6 +4,8 @@ import { BasicQuestionsPage  } from './BasicQuestionPage';
 import { DetailedQuestionsPage } from "./DetailedQuestionPage";
 import { Button } from 'react-bootstrap';
 import Spinner from 'react-bootstrap/Spinner';
+import React from 'react';
+
 
 export function ResultsPage({Response, Page}: {Response: string; Page:string; }): JSX.Element {
   const [isDetailedPage,setIsDetailedPage] = useState<boolean>(false);

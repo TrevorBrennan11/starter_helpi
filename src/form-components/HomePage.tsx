@@ -1,5 +1,6 @@
 // import { Form } from "react-bootstrap";
 import '../App.css';
+import React from 'react';
 
 export function HomePage(): JSX.Element {
     return(
