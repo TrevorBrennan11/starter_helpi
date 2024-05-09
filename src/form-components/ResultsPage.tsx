@@ -39,7 +39,8 @@ export function ResultsPage({Response, Page, responseMode, colorPalate}: {Respon
     return ( 
       <div>
         <h2>Here are your results!</h2>
-        <img className='result-image' src="Pirate.jpeg" alt='pirate image'></img>
+
+        <img src="Pirate.jpeg" className='result-image'></img>
         <div className='container' style={{width: "100%", backgroundColor: colorPalate[1]}}>
           <div className='search-wrapper' style={{backgroundColor: colorPalate[2]}}>
             {Response.split('\n').map((recommendation, index) => (
@@ -58,7 +59,8 @@ export function ResultsPage({Response, Page, responseMode, colorPalate}: {Respon
     return ( 
       <div>
         <h2>Here are your results!</h2>
-        <img src="Alien.jpg" alt='alien image' className='result-image'></img>
+
+        <img src="Alien.jpg" className='result-image'></img>
         <div className='container' style={{width: "100%", backgroundColor: colorPalate[1]}}>
           <div className='search-wrapper' style={{backgroundColor: colorPalate[2]}}>
             {Response.split('\n').map((recommendation, index) => (
@@ -77,7 +79,7 @@ export function ResultsPage({Response, Page, responseMode, colorPalate}: {Respon
     return ( 
       <div>
         <h2>Here are your results!</h2>
-        <img src="Medieveal.jpg" alt='Medieval image' className='result-image'></img>
+        <img src="Medieveal.jpg" className='result-image'></img>
         <div className='container' style={{width: "100%", backgroundColor: colorPalate[1]}}>
           <div className='search-wrapper' style={{backgroundColor: colorPalate[2]}}>
             {Response.split('\n').map((recommendation, index) => (
@@ -96,7 +98,7 @@ export function ResultsPage({Response, Page, responseMode, colorPalate}: {Respon
     return ( 
       <div>
         <h2>Here are your results!</h2>
-        <img src="defaultAvatar.jpeg" alt='Career Counseler Image'></img>
+        <img src="defaultAvatar.jpeg" className='result-image'></img>
         <div className='container' style={{width: "100%", backgroundColor: colorPalate[1]}}>
           <div className='search-wrapper' style={{backgroundColor: colorPalate[2]}}>
             {Response.split('\n').map((recommendation, index) => (
