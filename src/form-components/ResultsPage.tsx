@@ -4,8 +4,10 @@ import { BasicQuestionsPage  } from './BasicQuestionPage';
 import { DetailedQuestionsPage } from "./DetailedQuestionPage";
 import { Button } from 'react-bootstrap';
 import Spinner from 'react-bootstrap/Spinner';
+import { Color } from 'react-bootstrap/esm/types';
+import React from 'react';
 
-export function ResultsPage({Response, Page, responseMode}: {Response: string; Page:string; responseMode: string; }): JSX.Element {
+export function ResultsPage({Response, Page, responseMode, colorPalate}: {Response: string; Page:string; responseMode: string; colorPalate: Color[]}): JSX.Element {
   const [isDetailedPage,setIsDetailedPage] = useState<boolean>(false);
   const [isBasicPage,setIsBasicPage] = useState<boolean>(false);
 
@@ -18,9 +20,9 @@ export function ResultsPage({Response, Page, responseMode}: {Response: string; P
   }
 
   if (isDetailedPage){
-    return(<DetailedQuestionsPage responseMode={responseMode}></DetailedQuestionsPage>);
+    return(<DetailedQuestionsPage responseMode={responseMode} colorPalate={colorPalate}></DetailedQuestionsPage>);
   } else if (isBasicPage){
-    return(<BasicQuestionsPage responseMode={responseMode}></BasicQuestionsPage>)
+    return(<BasicQuestionsPage responseMode={responseMode} colorPalate={colorPalate}></BasicQuestionsPage>)
   } else if (Response === '') {
     return ( 
       <div>
@@ -32,8 +34,8 @@ export function ResultsPage({Response, Page, responseMode}: {Response: string; P
     return ( 
       <div>
         <h2>Here are your results!</h2>
-        <div className='container' style={{width: "100%"}}>
-          <div className='search-wrapper'>
+        <div className='container' style={{width: "100%", backgroundColor: colorPalate[1]}}>
+          <div className='search-wrapper' style={{backgroundColor: colorPalate[2]}}>
             {Response.split('\n').map((recommendation, index) => (
               <div key={index}>
                 <p>{recommendation}</p>
@@ -41,9 +43,8 @@ export function ResultsPage({Response, Page, responseMode}: {Response: string; P
             ))}
           </div>
         </div>
-        <Button className='Header-Button' onClick={Page === 'basic' ? retakeBasicQuiz : retakeDetailedQuiz }>Retake Quiz!</Button>
+        <Button onClick={Page === 'basic' ? retakeBasicQuiz : retakeDetailedQuiz } style={{color: colorPalate[2], backgroundColor: colorPalate[1], marginTop: '20px'}}>Retake Quiz!</Button>
       </div>
     );
   }
 }
-
