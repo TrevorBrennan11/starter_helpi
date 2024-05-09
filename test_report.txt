@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (48 ms)
+  ✕ renders learn react link (63 ms)
 
   ● renders learn react link
 
@@ -149,21 +149,21 @@ FAIL src/App.test.tsx
 ---------------------------|---------|----------|---------|---------|-------------------
 File                       | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ---------------------------|---------|----------|---------|---------|-------------------
-All files                  |   11.85 |    10.41 |    3.27 |   12.03 |                   
+All files                  |   11.11 |     8.33 |    3.12 |   11.26 |                   
  src                       |   24.44 |    31.25 |   11.11 |   24.44 |                   
   App.tsx                  |   32.35 |    41.66 |   14.28 |   32.35 | 15,27-68          
   index.tsx                |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts       |       0 |        0 |       0 |       0 | 3-10              
- src/form-components       |    5.55 |        0 |    1.92 |    5.68 |                   
+ src/form-components       |    5.05 |        0 |    1.81 |    5.15 |                   
   BasicQuestionPage.tsx    |    4.08 |        0 |       0 |    4.16 | 13-355            
   DetailedQuestionPage.tsx |    7.14 |        0 |       0 |     7.4 | 13-101            
   HomePage.tsx             |     100 |      100 |     100 |     100 |                   
-  ResultsPage.tsx          |       0 |        0 |       0 |       0 | 11-40             
+  ResultsPage.tsx          |       0 |        0 |       0 |       0 | 12-103            
 ---------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.25 s
+Time:        3.26 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
