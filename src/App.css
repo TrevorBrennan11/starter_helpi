@@ -93,3 +93,8 @@
 .App-detailed-loading{
   align-items: center;
 }
+
+.result-image{
+  height: 350;
+  width: 350;
+}
