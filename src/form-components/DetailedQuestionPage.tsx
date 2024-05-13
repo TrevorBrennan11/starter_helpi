@@ -14,6 +14,7 @@ export function DetailedQuestionsPage({responseMode, colorPalate}: {responseMode
   const[isResultsPage,setIsResultsPage] = useState<boolean>(false);
   const [answers, setAnswers] = useState<string[]>(["", "", "", "", "", "", ""]);
   const [numAnswered, setNumAnswered] = useState<number>(0);
+  const [isApiKey, setApiKey] = useState<boolean>(false);
 
   function updateAnswer(index: number, input: string) {
     setAnswers(prevAnswers => {
@@ -32,6 +33,11 @@ export function DetailedQuestionsPage({responseMode, colorPalate}: {responseMode
 
   async function showMyResults() {
     setIsResultsPage(true);
+    if (openai.apiKey === ""){
+      setApiKey(true);
+      return
+  }
+  setApiKey(false);
     const completion = await openai.chat.completions.create({
       messages: [{"role": "system", "content": "You are a"  + responseMode  + "who is giving me a list of careers that will suit me."},
           {"role": "user", "content": "When asked 'How inclined are you to take leadership roles when working in groups?' they responded" + answers[0]},
@@ -102,6 +108,7 @@ export function DetailedQuestionsPage({responseMode, colorPalate}: {responseMode
         {answers[0] && answers[1] && answers[2] && answers[3] && answers[4] && answers[5] && answers[6] && 
           <Button onClick={showMyResults} style={{color: colorPalate[2], backgroundColor: colorPalate[1], marginTop: '20px'}}>Get Results!</Button>
         }
+        {isApiKey && <div>Please Enter a Valid ApiKey!</div>}
       </div>
     );
   }
