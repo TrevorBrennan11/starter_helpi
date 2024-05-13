@@ -14,6 +14,7 @@ export function BasicQuestionsPage({responseMode, colorPalate}: {responseMode: s
     const [numAnswered, setNumAnswered] = useState<number>(0);
     const [basicResponse,setBasicResponse] = useState<string>("");
     const [isResultsPage,setIsResultsPage] = useState<boolean>(false);
+    const [isApiKey, setApiKey] = useState<boolean>(false);
   
     function updateNumAnswered(updatedAnswers: string[]) {
         let totalAnswered = updatedAnswers.filter(answer => !!answer).length;
@@ -32,6 +33,11 @@ export function BasicQuestionsPage({responseMode, colorPalate}: {responseMode: s
 
     async function showMyResults() {
         setIsResultsPage(true);
+        if (openai.apiKey === ""){
+            setApiKey(true);
+            return
+        }
+        setApiKey(false);
         const completion = await openai.chat.completions.create({
             messages: [{"role": "system", "content": "You are a " +  responseMode + " skilled in recommending three jobs starting with the most compatabile."},
             {"role": "user", "content": "When asked 'What kind of workplace environment interests you?' they responded" + answers[0]},
@@ -358,6 +364,7 @@ export function BasicQuestionsPage({responseMode, colorPalate}: {responseMode: s
                         Building or fixing things around the house
                     </label>
                 </div>
+                {isApiKey && <div>Please Enter a Valid ApiKey!</div>}
                 {answers[0] && answers[1] && answers[2] && answers[3] && answers[4] && answers[5] && answers[6] && 
                     <Button onClick={showMyResults} style={{color: colorPalate[2], backgroundColor: colorPalate[1], marginTop: '20px'}}>Get Results!</Button>
                 } 
