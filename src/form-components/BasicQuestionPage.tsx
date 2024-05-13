@@ -32,11 +32,11 @@ export function BasicQuestionsPage({responseMode, colorPalate}: {responseMode: s
     }
 
     async function showMyResults() {
-        setIsResultsPage(true);
         if (openai.apiKey === ""){
             setApiKey(true);
             return
         }
+        setIsResultsPage(true);
         setApiKey(false);
         const completion = await openai.chat.completions.create({
             messages: [{"role": "system", "content": "You are a " +  responseMode + " skilled in recommending three jobs starting with the most compatabile."},

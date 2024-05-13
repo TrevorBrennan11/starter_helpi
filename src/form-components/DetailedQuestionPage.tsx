@@ -32,11 +32,11 @@ export function DetailedQuestionsPage({responseMode, colorPalate}: {responseMode
   }
 
   async function showMyResults() {
-    setIsResultsPage(true);
     if (openai.apiKey === ""){
       setApiKey(true);
       return
   }
+    setIsResultsPage(true);
   setApiKey(false);
     const completion = await openai.chat.completions.create({
       messages: [{"role": "system", "content": "You are a"  + responseMode  + "who is giving me a list of careers that will suit me."},
