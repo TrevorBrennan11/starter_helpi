@@ -6,7 +6,7 @@ import React from 'react';
 export function HomePage({colorPalate}: {colorPalate: Color[]}): JSX.Element {
     return(
         <div >
-            <h1>Career Starter</h1>
+            <h1>CareerRolie</h1>
             <div className="container" style={{width: "40%", backgroundColor: colorPalate[1]}}>
                 <div className='search-wrapper' style={{backgroundColor: colorPalate[2]}}>
                     Our basic questions quiz provides you with short, easy to answer prompts that can help
